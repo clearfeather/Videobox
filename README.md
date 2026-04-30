@@ -14,6 +14,20 @@ This fork is not the official Screenbox build. For the original project, release
 
 VideoBox is built on top of [LibVLCSharp](https://github.com/videolan/libvlcsharp) and the Universal Windows Platform (UWP).
 
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/library-view.png" alt="VideoBox library view" width="900">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/playback-view.png" alt="VideoBox playback view" width="900">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/settings-view.png" alt="VideoBox settings view" width="900">
+</p>
+
 ## Features
 
 - Local video folder browsing with a folder-first library view
