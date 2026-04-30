@@ -39,6 +39,17 @@ Windows may show a publisher/certificate warning for local sideload builds that 
 
 This fork is not currently published to the Microsoft Store or winget.
 
+## Using VideoBox
+
+VideoBox works best when you add the folders you actually browse often.
+
+1. Open **Settings**.
+2. Under **Video library locations**, choose **Add folder**.
+3. Add your favorite video folders, such as movies, shows, personal clips, or organized collection folders.
+4. Go back to **Videos** to browse those folders, or use **All Videos** to see everything together.
+
+Once your folders are added, you can favorite videos, assign a single tag, set folder covers from JPEG images, and choose how thumbnails are generated. Settings also include startup page and audio defaults so the app opens and plays the way you prefer.
+
 ## Build
 
 ### Prerequisites
