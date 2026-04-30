@@ -8,7 +8,6 @@
     xmlns:controls="using:Screenbox.Controls"
     xmlns:ctAnimations="using:CommunityToolkit.WinUI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="using:Screenbox.Extensions"
     xmlns:helpers="using:Screenbox.Helpers"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -97,22 +96,6 @@
                         <commands:SetPlaybackOptionsCommand PlayCommand="{x:Bind ViewModel.PlayCommand}" />
                     </MenuFlyoutItem.Command>
                 </MenuFlyoutItem>
-            </MenuFlyout>
-
-            <MenuFlyout x:Key="OpenFlyout" Placement="BottomEdgeAlignedRight">
-                <MenuFlyoutItem
-                    AccessKey="{strings:KeyboardResources Key=MenuItemFileKey}"
-                    Command="{x:Bind Common.OpenFilesCommand}"
-                    Icon="{ui:FontIcon FontFamily={StaticResource ScreenboxSymbolThemeFontFamily},
-                                       Glyph={StaticResource FolderOpenGlyph}}"
-                    Text="{strings:Resources Key=OpenFiles}" />
-                <MenuFlyoutItem
-                    x:Name="OpenMenuFlyoutFolderItem"
-                    AccessKey="{strings:KeyboardResources Key=MenuItemFolderKey}"
-                    Command="{x:Bind ViewModel.OpenFolderCommand}"
-                    Icon="{ui:FontIcon FontFamily={StaticResource ScreenboxSymbolThemeFontFamily},
-                                       Glyph={StaticResource FolderListGlyph}}"
-                    Text="{strings:Resources Key=OpenFolder}" />
             </MenuFlyout>
 
             <Style x:Key="DashboardTileButtonStyle" TargetType="Button">
@@ -227,33 +210,29 @@
                 x:Name="HeaderText"
                 Style="{StaticResource TitleMediumTextBlockStyle}"
                 Text="{strings:Resources Key=Home}" />
-            <muxc:SplitButton
+            <Button
                 x:Name="HeaderOpenButton"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                extensions:SplitButtonExtensions.PrimaryButtonToolTip="{strings:Resources Key=OpenFilesToolTip}"
-                extensions:SplitButtonExtensions.SecondaryButtonAccessKey="{strings:KeyboardResources Key=CommandMoreOptionsKey}"
-                extensions:SplitButtonExtensions.SecondaryButtonToolTip="{strings:Resources Key=OpenFilesSecondaryToolTip}"
                 AccessKey="{strings:KeyboardResources Key=CommandAddOpenFilesKey}"
-                AutomationProperties.HelpText="{strings:Resources Key=OpenFilesToolTip}"
+                AutomationProperties.HelpText="{strings:Resources Key=AddVideoFolderToolTip}"
                 AutomationProperties.Name="{x:Bind HeaderOpenButtonText.Text}"
-                Command="{x:Bind Common.OpenFilesCommand}"
-                Flyout="{StaticResource OpenFlyout}">
+                Command="{x:Bind ViewModel.AddVideoFolderCommand}"
+                ToolTipService.ToolTip="{strings:Resources Key=AddVideoFolderToolTip}">
                 <StackPanel Orientation="Horizontal">
                     <FontIcon
                         Margin="{StaticResource IconButtonStandardIconMargin}"
                         FontFamily="{StaticResource ScreenboxSymbolThemeFontFamily}"
-                        Glyph="{StaticResource FolderOpenGlyph}" />
+                        Glyph="{StaticResource FolderListGlyph}" />
                     <TextBlock
                         x:Name="HeaderOpenButtonText"
                         Margin="8,0,0,0"
-                        Text="{strings:Resources Key=OpenFiles}" />
+                        Text="{strings:Resources Key=AddFolder}" />
                 </StackPanel>
                 <interactivity:Interaction.Behaviors>
-                    <behaviors:SplitButtonXYNavigationBehavior />
                     <behaviors:AutoFocusBehavior />
                 </interactivity:Interaction.Behaviors>
-            </muxc:SplitButton>
+            </Button>
         </Grid>
 
         <!--  Recent-is-empty content  -->
@@ -299,29 +278,25 @@
                     Text="{strings:Resources Key=WelcomePanelSubtext}"
                     TextWrapping="Wrap" />
 
-                <muxc:SplitButton
+                <Button
                     x:Name="WelcomePanelOpenButton"
-                    extensions:SplitButtonExtensions.PrimaryButtonToolTip="{strings:Resources Key=OpenFilesToolTip}"
-                    extensions:SplitButtonExtensions.SecondaryButtonAccessKey="{strings:KeyboardResources Key=CommandMoreOptionsKey}"
-                    extensions:SplitButtonExtensions.SecondaryButtonToolTip="{strings:Resources Key=OpenFilesSecondaryToolTip}"
                     AccessKey="{strings:KeyboardResources Key=CommandAddOpenFilesKey}"
-                    AutomationProperties.HelpText="{strings:Resources Key=OpenFilesToolTip}"
-                    AutomationProperties.Name="{strings:Resources Key=OpenFiles}"
-                    Command="{x:Bind Common.OpenFilesCommand}"
-                    Flyout="{StaticResource OpenFlyout}"
-                    Style="{StaticResource AccentSplitButtonStyle}">
+                    AutomationProperties.HelpText="{strings:Resources Key=AddVideoFolderToolTip}"
+                    AutomationProperties.Name="{strings:Resources Key=AddFolder}"
+                    Command="{x:Bind ViewModel.AddVideoFolderCommand}"
+                    Style="{StaticResource AccentButtonStyle}"
+                    ToolTipService.ToolTip="{strings:Resources Key=AddVideoFolderToolTip}">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             Margin="{StaticResource IconButtonStandardIconMargin}"
                             FontFamily="{StaticResource ScreenboxSymbolThemeFontFamily}"
-                            Glyph="{StaticResource FolderOpenGlyph}" />
-                        <TextBlock Margin="8,0,0,0" Text="{strings:Resources Key=OpenFiles}" />
+                            Glyph="{StaticResource FolderListGlyph}" />
+                        <TextBlock Margin="8,0,0,0" Text="{strings:Resources Key=AddFolder}" />
                     </StackPanel>
                     <interactivity:Interaction.Behaviors>
-                        <behaviors:SplitButtonXYNavigationBehavior />
                         <behaviors:AutoFocusBehavior />
                     </interactivity:Interaction.Behaviors>
-                </muxc:SplitButton>
+                </Button>
             </StackPanel>
         </Grid>
 

@@ -396,6 +396,25 @@ public sealed partial class HomePageViewModel : ObservableRecipient,
     }
 
     [RelayCommand]
+    private async Task AddVideoFolderAsync()
+    {
+        try
+        {
+            StorageFolder? folder = await _libraryService.AddVideoLibraryFolderAsync();
+            if (folder == null) return;
+
+            _libraryContext.VideoFolders = (await _libraryService.GetVideoLibraryFoldersAsync()).ToList();
+            await UpdateDashboardTilesAsync();
+            Messenger.Send(new RefreshFolderMessage());
+            await _libraryService.FetchVideosAsync(_libraryContext, false);
+        }
+        catch (Exception e)
+        {
+            Messenger.Send(new FailedToAddFolderNotificationMessage(e.Message));
+        }
+    }
+
+    [RelayCommand]
     private async Task OpenFolderAsync()
     {
         StorageFolder? folder = await _filesService.PickFolderAsync();
