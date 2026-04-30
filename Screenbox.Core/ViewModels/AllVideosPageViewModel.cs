@@ -49,20 +49,24 @@ public sealed partial class AllVideosPageViewModel : ObservableRecipient,
 
     private readonly LibraryContext _libraryContext;
     private readonly IFilesService _filesService;
+    private readonly ILibraryService _libraryService;
     private readonly ITagsService _tagsService;
     private readonly ISettingsService _settingsService;
     private readonly DispatcherQueue _dispatcherQueue;
     private readonly DispatcherQueueTimer _timer;
     private readonly List<MediaViewModel> _allVideos = new();
+    private bool _isFetchingVideos;
 
     public AllVideosPageViewModel(
         LibraryContext libraryContext,
         IFilesService filesService,
+        ILibraryService libraryService,
         ITagsService tagsService,
         ISettingsService settingsService)
     {
         _libraryContext = libraryContext;
         _filesService = filesService;
+        _libraryService = libraryService;
         _tagsService = tagsService;
         _settingsService = settingsService;
         _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
@@ -112,7 +116,7 @@ public sealed partial class AllVideosPageViewModel : ObservableRecipient,
     public void Receive(LibraryContentChangedMessage message)
     {
         if (message.LibraryId != KnownLibraryId.Videos) return;
-        _dispatcherQueue.TryEnqueue(UpdateVideos);
+        _dispatcherQueue.TryEnqueue(() => _ = UpdateVideosAsync());
     }
 
     public void Receive(TagsChangedMessage message)
@@ -122,11 +126,39 @@ public sealed partial class AllVideosPageViewModel : ObservableRecipient,
 
     public void UpdateVideos()
     {
+        _ = UpdateVideosAsync();
+    }
+
+    private async Task UpdateVideosAsync()
+    {
         IsLoading = _libraryContext.IsLoadingVideos;
+        if (!_isFetchingVideos && _libraryContext.Videos.Count == 0)
+        {
+            if (_libraryContext.VideoFolders.Count == 0)
+            {
+                _libraryContext.VideoFolders = (await _libraryService.GetVideoLibraryFoldersAsync()).ToList();
+            }
+
+            if (_libraryContext.VideoFolders.Count > 0)
+            {
+                _isFetchingVideos = true;
+                IsLoading = true;
+                try
+                {
+                    await _libraryService.FetchVideosAsync(_libraryContext);
+                }
+                finally
+                {
+                    _isFetchingVideos = false;
+                    IsLoading = _libraryContext.IsLoadingVideos;
+                }
+            }
+        }
+
         _allVideos.Clear();
         _allVideos.AddRange(_libraryContext.Videos);
 
-        _ = ApplyViewAsync(false);
+        await ApplyViewAsync(false);
 
         // Progressively update when it's still loading
         if (IsLoading)
