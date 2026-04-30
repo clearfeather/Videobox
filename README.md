@@ -85,7 +85,7 @@ VideoBox is a personal open-source fork maintained by ClearFeather. If it is use
 - [Make a small donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40clearfeather.com&item_name=VideoBox&currency_code=USD)
 - [Support on GitHub Sponsors](https://github.com/sponsors/clearfeather)
 
-Please also consider supporting the original Screenbox project and its author, Tung Huynh.
+Please also consider supporting the original Screenbox project and its author, [Tung Huynh](https://github.com/huynhsontung).
 
 ## License
 
