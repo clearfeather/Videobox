@@ -780,6 +780,7 @@
                                 <HyperlinkButton Content="{strings:Resources Key=License}" NavigateUri="https://github.com/clearfeather/Videobox/blob/main/LICENSE" />
                                 <HyperlinkButton Content="{strings:Resources Key=ThirdPartyNotices}" NavigateUri="https://github.com/clearfeather/Videobox/blob/main/NOTICE.md" />
                                 <HyperlinkButton Content="{strings:Resources Key=HyperlinkSourceCode}" NavigateUri="https://github.com/clearfeather/Videobox" />
+                                <HyperlinkButton Content="{strings:Resources Key=HyperlinkSponsor}" NavigateUri="https://github.com/sponsors/clearfeather" />
                             </StackPanel>
                         </ctc:SettingsCard>
                     </ctc:SettingsExpander.Items>

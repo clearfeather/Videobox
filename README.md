@@ -67,6 +67,14 @@ VideoBox is derived from Screenbox by Tung Huynh.
 
 Thank you to Tung Huynh and the Screenbox contributors for the original application.
 
+## Support
+
+VideoBox is a personal open-source fork maintained by ClearFeather. If it is useful to you, a small optional contribution helps support continued development:
+
+- [Support ClearFeather](https://github.com/sponsors/clearfeather)
+
+Please also consider supporting the original Screenbox project and its author, Tung Huynh.
+
 ## License
 
 VideoBox remains open source under the GNU General Public License v3.0, the same license used by Screenbox. See [LICENSE](LICENSE).
