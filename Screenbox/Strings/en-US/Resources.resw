@@ -700,7 +700,10 @@
     <value>Discord</value>
   </data>
   <data name="HyperlinkSponsor" xml:space="preserve">
-    <value>Support ClearFeather</value>
+    <value>Make a small donation</value>
+  </data>
+  <data name="HyperlinkGitHubSponsors" xml:space="preserve">
+    <value>Support on GitHub Sponsors</value>
   </data>
   <data name="Always" xml:space="preserve">
     <value>Always</value>
