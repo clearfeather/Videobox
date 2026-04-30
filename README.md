@@ -19,11 +19,12 @@ VideoBox is built on top of [LibVLCSharp](https://github.com/videolan/libvlcshar
 - Local video folder browsing with a folder-first library view
 - All Videos view with sorting, search, and thumbnail size controls
 - Favorites, recent media, playlists, and single-tag organization
-- Folder covers from `folder.jpg`, `cover.jpg`, or selected cover images
+- Folder covers from any selected JPEG image
 - Optional scanned frame thumbnails and user-selected custom thumbnails
 - Automatic title cleanup for common filename patterns
 - Metadata side panel for selected videos
 - Local-only playback focus with internet capability removed
+- Startup audio preference for remembered volume, mute, or a chosen default level
 - Optional app PIN lock
 
 ## Install
