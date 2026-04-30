@@ -28,7 +28,13 @@ VideoBox is built on top of [LibVLCSharp](https://github.com/videolan/libvlcshar
 
 ## Install
 
-VideoBox is currently distributed as a sideloaded Windows app package. Create a release package from Visual Studio using the UWP packaging tools, then install the generated package or sideload bundle.
+VideoBox is currently distributed as a sideloaded Windows app package.
+
+1. Download the latest `VideoBox_..._x64.msixbundle` from [Releases](https://github.com/clearfeather/Videobox/releases).
+2. Open the downloaded `.msixbundle`.
+3. Choose Install or Update.
+
+Windows may show a publisher/certificate warning for local sideload builds that are not Microsoft Store signed.
 
 This fork is not currently published to the Microsoft Store or winget.
 
