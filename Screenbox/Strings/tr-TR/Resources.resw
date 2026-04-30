@@ -1,0 +1,1068 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FrameSavedNotificationTitle" xml:space="preserve">
+    <value>Kare kaydedildi</value>
+  </data>
+  <data name="CompactOverlayToggle_Variant0" xml:space="preserve">
+    <value>Resim içinde resim</value>
+  </data>
+  <data name="SaveCurrentFrame" xml:space="preserve">
+    <value>Şu anki kareyi kaydet</value>
+  </data>
+  <data name="Loop" xml:space="preserve">
+    <value>Tekrarla</value>
+  </data>
+  <data name="PlaybackSpeed" xml:space="preserve">
+    <value>Oynatma hızı</value>
+  </data>
+  <data name="VolumeChangeStatusMessage" xml:space="preserve">
+    <value>Ses %{0:F0}</value>
+    <comment>#Format[Double volume]</comment>
+  </data>
+  <data name="FailedToSaveFrameNotificationTitle" xml:space="preserve">
+    <value>Kare kaydedilemedi</value>
+  </data>
+  <data name="TimeElapsed" xml:space="preserve">
+    <value>Geçen süre</value>
+  </data>
+  <data name="TimeRemaining" xml:space="preserve">
+    <value>Kalan süre</value>
+  </data>
+  <data name="TimeLength" xml:space="preserve">
+    <value>Toplam süre</value>
+  </data>
+  <data name="ChapterName" xml:space="preserve">
+    <value>Bölüm {0}</value>
+    <comment>#Format[Int32 chapter]</comment>
+  </data>
+  <data name="FailedToLoadSubtitleNotificationTitle" xml:space="preserve">
+    <value>Altyazı yüklenemedi</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="MuteToggle_Variant0" xml:space="preserve">
+    <value>Sessiz</value>
+  </data>
+  <data name="MuteToggle_Variant1" xml:space="preserve">
+    <value>Sesi aç</value>
+  </data>
+  <data name="FullscreenToggle_Variant0" xml:space="preserve">
+    <value>Tam ekran</value>
+  </data>
+  <data name="AudioAndCaption" xml:space="preserve">
+    <value>Ses &amp; altyazılar</value>
+  </data>
+  <data name="FullscreenToggle_Variant1" xml:space="preserve">
+    <value>Tam ekrandan çık</value>
+  </data>
+  <data name="Volume" xml:space="preserve">
+    <value>Ses</value>
+  </data>
+  <data name="VolumeSliderTooltip" xml:space="preserve">
+    <value>Ses seviyesini ayarla</value>
+  </data>
+  <data name="Seek" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="CompactOverlayToggle_Variant1" xml:space="preserve">
+    <value>Resim içinde resim modundan çık</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Sonraki</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Önceki</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Oynat</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Duraklat</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Daha Fazla</value>
+  </data>
+  <data name="PlayQueue" xml:space="preserve">
+    <value>Oynatma Sırası</value>
+  </data>
+  <data name="RepeatMode_Variant0" xml:space="preserve">
+    <value>Tekrarlama Kapalı</value>
+  </data>
+  <data name="RepeatMode_Variant2" xml:space="preserve">
+    <value>Tümünü Tekrarla</value>
+  </data>
+  <data name="RepeatMode_Variant1" xml:space="preserve">
+    <value>Birini Tekrarla</value>
+  </data>
+  <data name="ItemsSelected_One" xml:space="preserve">
+    <value>{0} öğe seçildi</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="ItemsSelected_Other" xml:space="preserve">
+    <value>{0} öğe seçildi</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="AddToQueue" xml:space="preserve">
+    <value>Sıraya ekle</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Hepsini seç</value>
+  </data>
+  <data name="SelectAllToolTip" xml:space="preserve">
+    <value>Bu görünümdeki tüm öğeleri seç</value>
+  </data>
+  <data name="SelectNone" xml:space="preserve">
+    <value>Hiçbirini seçme</value>
+  </data>
+  <data name="SelectNoneToolTip" xml:space="preserve">
+    <value>Seçimi Temizle</value>
+  </data>
+  <data name="ClearSelection" xml:space="preserve">
+    <value>Seçimi Temizle</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Kaldır</value>
+  </data>
+  <data name="PlayNext" xml:space="preserve">
+    <value>Sonrakini oynat</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Yukarı taşı</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Aşağı taşı</value>
+  </data>
+  <data name="IsPlaying" xml:space="preserve">
+    <value>Oynatılıyor</value>
+    <comment>Tool tip on which item is currently playing</comment>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videolar</value>
+  </data>
+  <data name="EmptyFolder" xml:space="preserve">
+    <value>Bu klasör boş</value>
+  </data>
+  <data name="ItemsCount_One" xml:space="preserve">
+    <value>{0} öğe</value>
+    <comment>#Format[Plural]</comment>
+  </data>
+  <data name="ItemsCount_Other" xml:space="preserve">
+    <value>{0} öğe</value>
+    <comment>#Format[Plural]</comment>
+  </data>
+  <data name="ItemsCount_None" xml:space="preserve">
+    <value>Boş</value>
+  </data>
+  <data name="RestoreView" xml:space="preserve">
+    <value>Video görünümünü geri yükle</value>
+  </data>
+  <data name="MinimizeImmersiveView" xml:space="preserve">
+    <value>Gerçekçi görünümü en aza indir</value>
+  </data>
+  <data name="Cast" xml:space="preserve">
+    <value>Cihazda yayınla</value>
+  </data>
+  <data name="StopCast" xml:space="preserve">
+    <value>Cihazda yayınlamayı durdur</value>
+  </data>
+  <data name="CastingTo" xml:space="preserve">
+    <value>Yayınla</value>
+  </data>
+  <data name="CastToDevice" xml:space="preserve">
+    <value>Cihaza yayınla</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Devre Dışı Bırak</value>
+  </data>
+  <data name="Music" xml:space="preserve">
+    <value>Müzik</value>
+  </data>
+  <data name="ShuffleAndPlay" xml:space="preserve">
+    <value>Karıştır ve oynat</value>
+  </data>
+  <data name="UnknownArtist" xml:space="preserve">
+    <value>Bilinmeyen sanatçı</value>
+  </data>
+  <data name="UnknownAlbum" xml:space="preserve">
+    <value>Bilinmeyen albüm</value>
+  </data>
+  <data name="UnknownGenre" xml:space="preserve">
+    <value>Bilinmeyen tarz</value>
+  </data>
+  <data name="AddFolder" xml:space="preserve">
+    <value>Klasör ekle</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Temizle</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Ana Sayfa</value>
+  </data>
+  <data name="Multiselect" xml:space="preserve">
+    <value>Birden fazla seç</value>
+  </data>
+  <data name="NoMusicPanelHeader" xml:space="preserve">
+    <value>Hiç müzik bulamadık :(</value>
+  </data>
+  <data name="NoMusicPanelSubtext" xml:space="preserve">
+    <value>Müzik kitaplığınızda herhangi bir müzik içeriği bulunmuyor. :(</value>
+  </data>
+  <data name="OpenFiles" xml:space="preserve">
+    <value>Dosya(ları) aç</value>
+  </data>
+  <data name="SearchBoxPlaceholderText" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="SearchBoxToolTip" xml:space="preserve">
+    <value>Videoları, şarkıları, albümleri ve daha fazlasını arayın</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="WelcomePanelHeader" xml:space="preserve">
+    <value>Screenbox'a hoş geldiniz</value>
+  </data>
+  <data name="WelcomePanelSubtext" xml:space="preserve">
+    <value>İşleri yoluna koymak için medya içeriğinizden bazılarını oynatmaya başlayalım.</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Özellikler</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="OpenFileLocation" xml:space="preserve">
+    <value>Dosya konumunu aç</value>
+  </data>
+  <data name="OpenWith" xml:space="preserve">
+    <value>Open with</value>
+  </data>
+  <data name="PropertyAlbum" xml:space="preserve">
+    <value>Albüm</value>
+  </data>
+  <data name="PropertyAlbumArtist" xml:space="preserve">
+    <value>Album sanatçısı</value>
+  </data>
+  <data name="PropertyBitRate" xml:space="preserve">
+    <value>Bit hızı</value>
+  </data>
+  <data name="PropertyContentType" xml:space="preserve">
+    <value>İçerik Türü</value>
+  </data>
+  <data name="PropertyContributingArtists" xml:space="preserve">
+    <value>Katkıda bulunan sanatçılar</value>
+  </data>
+  <data name="PropertyFileLocation" xml:space="preserve">
+    <value>Dosya Konumu</value>
+  </data>
+  <data name="PropertyFileType" xml:space="preserve">
+    <value>Dosya türü</value>
+  </data>
+  <data name="PropertyGenre" xml:space="preserve">
+    <value>Tarz</value>
+  </data>
+  <data name="PropertyLastModified" xml:space="preserve">
+    <value>Son düzenleme</value>
+  </data>
+  <data name="PropertyLength" xml:space="preserve">
+    <value>Uzunluk</value>
+  </data>
+  <data name="PropertyProducers" xml:space="preserve">
+    <value>Yapımcı</value>
+  </data>
+  <data name="PropertyResolution" xml:space="preserve">
+    <value>Çözünürlük</value>
+  </data>
+  <data name="PropertySize" xml:space="preserve">
+    <value>Boyut</value>
+  </data>
+  <data name="PropertySubtitle" xml:space="preserve">
+    <value>Altyazı</value>
+  </data>
+  <data name="PropertyTitle" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="PropertyTrack" xml:space="preserve">
+    <value>Parça</value>
+  </data>
+  <data name="PropertyWriters" xml:space="preserve">
+    <value>Yazarlar</value>
+  </data>
+  <data name="PropertyYear" xml:space="preserve">
+    <value>Yapım yılı</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Özel</value>
+  </data>
+  <data name="Network" xml:space="preserve">
+    <value>Ağ</value>
+  </data>
+  <data name="NoNetworkDrivePanelHeader" xml:space="preserve">
+    <value>Kullanılabilir ağ cihazı yok</value>
+  </data>
+  <data name="NoNetworkDrivePanelSubtext" xml:space="preserve">
+    <value>Medyanızı bulamıyor musunuz?  Ağ cihazınızın Windows Ayarlarında eşleştirildiğinden emin olun.</value>
+  </data>
+  <data name="Recent" xml:space="preserve">
+    <value>Son Kullanılanlar</value>
+  </data>
+  <data name="VideoSettings" xml:space="preserve">
+    <value>Görüntü ayarları</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Aç</value>
+  </data>
+  <data name="LocationSpecified_One" xml:space="preserve">
+    <value>{0} parça bulundu</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="LocationSpecified_Other" xml:space="preserve">
+    <value>{0} parça bulundu</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="ShuffleMode_Variant0" xml:space="preserve">
+    <value>Karışık: Kapalı</value>
+  </data>
+  <data name="ShuffleMode_Variant1" xml:space="preserve">
+    <value>Karışık: Açık</value>
+  </data>
+  <data name="ResumePositionNotificationTitle" xml:space="preserve">
+    <value>Kaldığınız yerden devam edin</value>
+  </data>
+  <data name="GoToPosition" xml:space="preserve">
+    <value>{0} konumuna git</value>
+    <comment>#Format[String position]</comment>
+  </data>
+  <data name="Albums" xml:space="preserve">
+    <value>Albümler</value>
+  </data>
+  <data name="Artists" xml:space="preserve">
+    <value>Sanatçılar</value>
+  </data>
+  <data name="Song" xml:space="preserve">
+    <value>Şarkı</value>
+  </data>
+  <data name="Songs" xml:space="preserve">
+    <value>Şarkılar</value>
+  </data>
+  <data name="OpenFilesToolTip" xml:space="preserve">
+    <value>Oynatılacak dosyalara göz atın</value>
+  </data>
+  <data name="OpenFilesSecondaryToolTip" xml:space="preserve">
+    <value>Medyayı açmak için daha fazla seçenek</value>
+  </data>
+  <data name="AddFiles" xml:space="preserve">
+    <value>Dosya(ları) ekle</value>
+  </data>
+  <data name="AddFilesToPlayQueueToolTip" xml:space="preserve">
+    <value>Oynatma sırasına eklenecek dosya(lar)a göz atın</value>
+  </data>
+  <data name="AddFilesToPlayQueueSecondaryToolTip" xml:space="preserve">
+    <value>Oynatma kuyruğuna medya eklemek için daha fazla seçenek</value>
+  </data>
+  <data name="AddMusicFolderToolTip" xml:space="preserve">
+    <value>Müzik kitaplığınıza bir klasör ekleyin</value>
+  </data>
+  <data name="AddUrl" xml:space="preserve">
+    <value>URL'den medya ekleyin</value>
+  </data>
+  <data name="AddVideoFolderToolTip" xml:space="preserve">
+    <value>Video kitaplığınıza bir klasör ekleyin</value>
+  </data>
+  <data name="OpenFolder" xml:space="preserve">
+    <value>Klasörü aç</value>
+  </data>
+  <data name="OpenUrl" xml:space="preserve">
+    <value>URL Aç</value>
+  </data>
+  <data name="SongsCount_None" xml:space="preserve">
+    <value>Boş</value>
+  </data>
+  <data name="SongsCount_One" xml:space="preserve">
+    <value>{0} şarkı</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="SongsCount_Other" xml:space="preserve">
+    <value>{0} şarkılar</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="AlbumsCount_One" xml:space="preserve">
+    <value>{0} albüm</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="AlbumsCount_Other" xml:space="preserve">
+    <value>{0} albümler</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="RunTime" xml:space="preserve">
+    <value>{0} çalışma zamanı</value>
+    <comment>#Format[String runtime]</comment>
+  </data>
+  <data name="AllVideos" xml:space="preserve">
+    <value>Tüm Videolar</value>
+  </data>
+  <data name="VideoFolders" xml:space="preserve">
+    <value>Video klasörleri</value>
+  </data>
+  <data name="SearchResultHeader" xml:space="preserve">
+    <value>"{0}" için arama sonuçları</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Tümünü göster</value>
+  </data>
+  <data name="SearchResultArtistHeader" xml:space="preserve">
+    <value>"{0}" için sanatçı sonuçları</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="SearchResultAlbumHeader" xml:space="preserve">
+    <value>"{0}" için albüm sonuçları</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="SearchResultSongHeader" xml:space="preserve">
+    <value>"{0}" için şarkı sonuçları</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="SearchResultVideoHeader" xml:space="preserve">
+    <value>"{0}" için video sonuçları</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="AlbumsCount_None" xml:space="preserve">
+    <value>Albüm yok</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="AccessDeniedMessage" xml:space="preserve">
+    <value>Erişim engellendi.  Screenbox'ın yeterli izinlere sahip olduğundan emin olmak için lütfen gizlilik ayarlarınızı doğrulayın.</value>
+  </data>
+  <data name="AccessDeniedMusicLibraryTitle" xml:space="preserve">
+    <value>Müzik kitaplığına erişilemiyor</value>
+  </data>
+  <data name="AccessDeniedPicturesLibraryTitle" xml:space="preserve">
+    <value>Resim kitaplığına erişilemiyor</value>
+  </data>
+  <data name="AccessDeniedVideosLibraryTitle" xml:space="preserve">
+    <value>Video kitaplığına erişilemiyor</value>
+  </data>
+  <data name="NoVideosPanelHeader" xml:space="preserve">
+    <value>Herhangi bir video bulamadık</value>
+  </data>
+  <data name="NoVideosPanelSubtext" xml:space="preserve">
+    <value>Video kitaplığınızda herhangi bir video içeriği bulunmuyor.</value>
+  </data>
+  <data name="OpenPrivacySettingsButtonText" xml:space="preserve">
+    <value>Gizlilik ayarlarını aç</value>
+  </data>
+  <data name="FailedToLoadMediaNotificationTitle" xml:space="preserve">
+    <value>Medya yüklenemiyor</value>
+  </data>
+  <data name="AspectRatio" xml:space="preserve">
+    <value>En boy oranı</value>
+  </data>
+  <data name="Fit" xml:space="preserve">
+    <value>Sığdır</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>Doldur</value>
+  </data>
+  <data name="CustomAspectRatio" xml:space="preserve">
+    <value>Özel en boy oranı</value>
+  </data>
+  <data name="CustomPlaybackSpeed" xml:space="preserve">
+    <value>Özel oynatma hızı</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Yok</value>
+  </data>
+  <data name="ScaleStatus" xml:space="preserve">
+    <value>Ölçek: {0}</value>
+    <comment>#Format[String scale]</comment>
+  </data>
+  <data name="SubtitleStatus" xml:space="preserve">
+    <value>Altyazı: {0}</value>
+    <comment>#Format[String name]</comment>
+  </data>
+  <data name="TrackIndex" xml:space="preserve">
+    <value>Parça {0}</value>
+    <comment>#Format[Int index]</comment>
+  </data>
+  <data name="AddSubtitle" xml:space="preserve">
+    <value>Altyazı ekle</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Ses</value>
+  </data>
+  <data name="SettingsCategoryAbout" xml:space="preserve">
+    <value>Hakkında</value>
+  </data>
+  <data name="SettingsCategoryGeneral" xml:space="preserve">
+    <value>Genel</value>
+  </data>
+  <data name="SettingsCategoryLibraries" xml:space="preserve">
+    <value>Parçalarım</value>
+  </data>
+  <data name="SettingsCategoryPlayer" xml:space="preserve">
+    <value>Oynatıcı</value>
+  </data>
+  <data name="SettingsMusicLibraryLocationsHeader" xml:space="preserve">
+    <value>Müzik kitaplığı konumları</value>
+  </data>
+  <data name="SettingsShowRecentHeader" xml:space="preserve">
+    <value>En son kullanılanları göster</value>
+  </data>
+  <data name="SettingsShowControlsHeader" xml:space="preserve">
+    <value>Video durduğunda düğmeleri göster</value>
+  </data>
+  <data name="SettingsVideoLibraryLocationsHeader" xml:space="preserve">
+    <value>Video kitaplığı konumları</value>
+  </data>
+  <data name="Subtitles" xml:space="preserve">
+    <value>Altyazılar</value>
+  </data>
+  <data name="SettingsShowRecentDescription" xml:space="preserve">
+    <value>Son oynatılan medyayı ana sayfada görüntüle</value>
+  </data>
+  <data name="SettingsClearRecentHeader" xml:space="preserve">
+    <value>Medya geçmişini temizle</value>
+  </data>
+  <data name="SettingsAutoResizeHeader" xml:space="preserve">
+    <value>Otomatik yeniden boyutlandırma</value>
+  </data>
+  <data name="SettingsAutoResizeDescription" xml:space="preserve">
+    <value>Oynatma sırasında videonun yerel çözünürlüğüne en iyi şekilde uyacak şekilde uygulama penceresini yeniden boyutlandırın</value>
+  </data>
+  <data name="SettingsVolumeBoostHeader" xml:space="preserve">
+    <value>Ses artırma</value>
+  </data>
+  <data name="SettingsVolumeBoostDescription" xml:space="preserve">
+    <value>Maksimum ses düzeyinin %100'ün üzerine çıkmasına izin verin</value>
+  </data>
+  <data name="SettingsOnScreenControlsHeader" xml:space="preserve">
+    <value>Ekran üstü kontroller</value>
+  </data>
+  <data name="SettingsOnScreenControlsDescription" xml:space="preserve">
+    <value>Kontrollerde hangi öğelerin görünebileceğini seçin ve otomatik gizleme davranışını ayarlayın</value>
+  </data>
+  <data name="SettingsGesturesHeader" xml:space="preserve">
+    <value>İşlem Kısayolları</value>
+  </data>
+  <data name="SettingsGestureSeek" xml:space="preserve">
+    <value>Aramak için yatay olarak sürükleyin</value>
+  </data>
+  <data name="SettingsGestureVolume" xml:space="preserve">
+    <value>Sesi ayarlamak için dikey olarak sürükleyin</value>
+  </data>
+  <data name="SettingsGestureTap" xml:space="preserve">
+    <value>Oynatmak veya duraklatmak için herhangi bir yere dokunun</value>
+  </data>
+  <data name="AppFriendlyName" xml:space="preserve">
+    <value>Screenbox Medya Oynatıcısı</value>
+  </data>
+  <data name="HyperlinkSourceCode" xml:space="preserve">
+    <value>Kaynak kodu</value>
+  </data>
+  <data name="HyperlinkDiscord" xml:space="preserve">
+    <value>Discord</value>
+  </data>
+  <data name="HyperlinkSponsor" xml:space="preserve">
+    <value>Geliştiriciyi destekle</value>
+  </data>
+  <data name="Always" xml:space="preserve">
+    <value>Her zaman</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Asla</value>
+  </data>
+  <data name="OnLaunch" xml:space="preserve">
+    <value>Açılışta</value>
+  </data>
+  <data name="VersionText" xml:space="preserve">
+    <value>Versiyon {0}</value>
+    <comment>#Format[VERSION]</comment>
+  </data>
+  <data name="SubtitleAddedNotificationTitle" xml:space="preserve">
+    <value>Altyazı eklendi</value>
+  </data>
+  <data name="PlaylistCreatedNotificationTitle" xml:space="preserve">
+    <value>Playlist "{0}" created</value>
+    <comment>#Format[String name]</comment>
+  </data>
+  <data name="PlaylistDeletedNotificationTitle" xml:space="preserve">
+    <value>Playlist "{0}" deleted</value>
+    <comment>#Format[String name]</comment>
+  </data>
+  <data name="PlaylistRenamedNotificationTitle" xml:space="preserve">
+    <value>Playlist renamed to "{0}"</value>
+    <comment>#Format[String name]</comment>
+  </data>
+  <data name="CriticalError" xml:space="preserve">
+    <value>Kritik hata</value>
+  </data>
+  <data name="CriticalErrorDirect3D11NotAvailable" xml:space="preserve">
+    <value>Uyumlu oluşturucu yok.  Lütfen cihazınızda Direct3D 11'in mevcut olduğundan emin olun.</value>
+  </data>
+  <data name="CriticalErrorMoreInformation" xml:space="preserve">
+    <value>Bu konu ve olası düzeltmeler hakkında daha fazla bilgi için ziyaret edin</value>
+  </data>
+  <data name="FailedToOpenFilesNotificationTitle" xml:space="preserve">
+    <value>Dosya(lar) açılamadı</value>
+  </data>
+  <data name="OpenUrlPlaceholder" xml:space="preserve">
+    <value>Bir dosya veya akışın URL'sini girin</value>
+  </data>
+  <data name="OpenConnectedDevicesSettingsButtonText" xml:space="preserve">
+    <value>Bağlı Cihazlar ayarlarını aç</value>
+  </data>
+  <data name="SetPlaybackOptions" xml:space="preserve">
+    <value>Oynatma seçeneklerini ayarlayın</value>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>Ayarla</value>
+  </data>
+  <data name="SetAndPlay" xml:space="preserve">
+    <value>Ayarla ve Oynat</value>
+  </data>
+  <data name="SetPlaybackOptionsHelpTextLine1" xml:space="preserve">
+    <value>Bir akışa uygulanan VLC seçeneklerini ayarlayın.</value>
+  </data>
+  <data name="SetPlaybackOptionsHelpTextLine2" xml:space="preserve">
+    <value>Bazı seçenekler yalnızca genel olarak ayarlanabilir.</value>
+  </data>
+  <data name="VlcCommandLineHelpLink" xml:space="preserve">
+    <value>VLC komut satırı yardımı</value>
+  </data>
+  <data name="VlcCommandLineHelpText" xml:space="preserve">
+    <value>Mevcut seçeneklerin tam listesi için {0} konusuna bakın.</value>
+    <comment>{0} = VLC command-line help</comment>
+  </data>
+  <data name="SettingsCategoryAdvanced" xml:space="preserve">
+    <value>Gelişmiş</value>
+  </data>
+  <data name="SettingsCategoryPrivacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="SettingsAdvancedModeHeader" xml:space="preserve">
+    <value>Gelişmiş mod</value>
+  </data>
+  <data name="SettingsAdvancedModeDescription" xml:space="preserve">
+    <value>Gelişmiş mod, komut satırı bağımsız değişkenlerini kullanarak LibVLC'nin davranışını özelleştirmenize olanak tanır.</value>
+  </data>
+  <data name="SettingsGlobalArgumentsHeader" xml:space="preserve">
+    <value>Evrensel argümanlar</value>
+  </data>
+  <data name="SettingsGlobalArgumentsDescription" xml:space="preserve">
+    <value>Tüm medya oynatma için geçerli olan komut satırı bağımsız değişkenleri.</value>
+  </data>
+  <data name="RemoveFolder" xml:space="preserve">
+    <value>Klasörü kaldır</value>
+  </data>
+  <data name="PendingChanges" xml:space="preserve">
+    <value>Bekleyen değişiklikler</value>
+  </data>
+  <data name="RelaunchForChangesMessage" xml:space="preserve">
+    <value>Değişikliklerin etkili olması için uygulamayı yeniden başlatın</value>
+  </data>
+  <data name="FailedToInitializeNotificationTitle" xml:space="preserve">
+    <value>Başlatılamadı</value>
+  </data>
+  <data name="RelatedLinks" xml:space="preserve">
+    <value>İlgili bağlantılar</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Gizlilik politikası</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>Lisans</value>
+  </data>
+  <data name="ThirdPartyNotices" xml:space="preserve">
+    <value>Üçüncü taraf yazılım bildirimleri</value>
+  </data>
+  <data name="HyperlinkTranslate" xml:space="preserve">
+    <value>Çeviriye yardım et</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Seçenekler</value>
+  </data>
+  <data name="TimingOffset" xml:space="preserve">
+    <value>Zamanlama kaydırma</value>
+  </data>
+  <data name="PropertyComposers" xml:space="preserve">
+    <value>Besteciler</value>
+  </data>
+  <data name="FailedToAddFolderNotificationTitle" xml:space="preserve">
+    <value>Klasör eklenemedi</value>
+  </data>
+  <data name="OpenAlbum" xml:space="preserve">
+    <value>Albümü aç</value>
+  </data>
+  <data name="OpenArtist" xml:space="preserve">
+    <value>Sanatçıyı aç</value>
+  </data>
+  <data name="RefreshLibraries" xml:space="preserve">
+    <value>Kitaplıkları yenile</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Yenile</value>
+  </data>
+  <data name="SettingsUseIndexerHeader" xml:space="preserve">
+    <value>Tarama için dizin oluşturucuyu kullanın</value>
+  </data>
+  <data name="SettingsUseIndexerDescription" xml:space="preserve">
+    <value>Mevcut olduğunda sistem dizinini kullanarak kitaplık taramasını hızlandırın.  Kütüphane konumlarınızdaki tüm medyayı göremiyorsanız bunu kapatın.</value>
+  </data>
+  <data name="ManageSystemIndexingLink" xml:space="preserve">
+    <value>Sistem indeksleme ayarlarını yönetin</value>
+  </data>
+  <data name="SetArguments" xml:space="preserve">
+    <value>Bağımsız değişkenleri ayarla</value>
+  </data>
+  <data name="SettingsSearchRemovableStorageHeader" xml:space="preserve">
+    <value>Çıkarılabilir depolama birimini arayın</value>
+  </data>
+  <data name="SettingsSearchRemovableStorageDescription" xml:space="preserve">
+    <value>Kitaplıklarınıza USB çubukları gibi depolama aygıtlarındaki medyayı ekleyin</value>
+  </data>
+  <data name="ActiveArguments" xml:space="preserve">
+    <value>Aktif argümanlar</value>
+  </data>
+  <data name="SettingsUseMultipleInstancesHeader" xml:space="preserve">
+    <value>Birden çok örneğe izin ver</value>
+  </data>
+  <data name="SettingsUseMultipleInstancesDescription" xml:space="preserve">
+    <value>Medya dosyalarını her zaman yeni bir örnekte açın</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Göre sırala</value>
+  </data>
+  <data name="SortByAutomationName" xml:space="preserve">
+    <value>{0} seçeneğine göre sırala seçeneği seçildi</value>
+    <comment>#Format[String sortBy]</comment>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Sanatçı</value>
+  </data>
+  <data name="ReleasedYear" xml:space="preserve">
+    <value>Çıkış yılı</value>
+  </data>
+  <data name="SettingsAudioVisualHeader" xml:space="preserve">
+    <value>Ses görselleri</value>
+  </data>
+  <data name="GetLivelyApp" xml:space="preserve">
+    <value>Lively Wallpaper indir</value>
+  </data>
+  <data name="GetLivelyVisuals" xml:space="preserve">
+    <value>Ses görsellerini Githubdan indirin</value>
+  </data>
+  <data name="VisualizerOptionsToolTip" xml:space="preserve">
+    <value>Görsel-işitsel seçenekler</value>
+  </data>
+  <data name="Visuals" xml:space="preserve">
+    <value>Görseller</value>
+  </data>
+  <data name="BrowseFiles" xml:space="preserve">
+    <value>Dosyalara göz at</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Varsayılan</value>
+  </data>
+  <data name="SettingsAudioVisualDescription" xml:space="preserve">
+    <value>Ses oynatımında görüntülenecek bir görüntü stili seçin</value>
+  </data>
+  <data name="PoweredByLivelyWallpaper" xml:space="preserve">
+    <value>Lively Wallpaper tarafından desteklenmektedir</value>
+  </data>
+  <data name="SettingsImportVisualsHeader" xml:space="preserve">
+    <value>Görselleri içeri aktar</value>
+  </data>
+  <data name="SettingsImportVisualsDescription" xml:space="preserve">
+    <value>Lively Wallpaper uygulamasıyla daha fazla ses görseli edinin veya bunları GitHub'dan indirin</value>
+  </data>
+  <data name="DateAdded" xml:space="preserve">
+    <value>Eklendiği tarih</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Medya</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Dosya</value>
+  </data>
+  <data name="MusicLibrary" xml:space="preserve">
+    <value>Müzik</value>
+  </data>
+  <data name="VideoLibrary" xml:space="preserve">
+    <value>Videolar</value>
+  </data>
+  <data name="ShowAlbum" xml:space="preserve">
+    <value>Albümü göster</value>
+  </data>
+  <data name="ShowArtist" xml:space="preserve">
+    <value>Sanatçıyı göster</value>
+  </data>
+  <data name="FailedToLoadVisualNotificationTitle" xml:space="preserve">
+    <value>Görsel yüklenemedi</value>
+  </data>
+  <data name="SettingsEnqueueAllFilesInFolderDescription" xml:space="preserve">
+    <value>Tek bir dosyayı açarken, klasördeki diğer tüm dosyaları otomatik olarak oynatma sırasına ekleyin.</value>
+  </data>
+  <data name="SettingsEnqueueAllFilesInFolderHeader" xml:space="preserve">
+    <value>Klasördeki tüm dosyaları sıraya ekle</value>
+  </data>
+  <data name="ThemeAuto" xml:space="preserve">
+    <value>Sistem ayarını kullan</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Koyu</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+  <data name="SettingsThemeSelectionDescription" xml:space="preserve">
+    <value>Windows ayarlarınızla eşleşecek bir tema seçin veya özel bir tema seçin</value>
+  </data>
+  <data name="SettingsThemeSelectionHeader" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="SettingsCategoryPersonalization" xml:space="preserve">
+    <value>Kişiselleştirme</value>
+  </data>
+  <data name="SettingsRestorePlaybackPositionHeader" xml:space="preserve">
+    <value>Her zaman son kısımdan devam et</value>
+  </data>
+  <data name="SettingsRestorePlaybackPositionDescription" xml:space="preserve">
+    <value>En son kaldığınız yerden oynatmaya devam et</value>
+  </data>
+  <data name="SettingsVideoUpscalingHeader" xml:space="preserve">
+    <value>Video görüntü yükseltme yöntemi</value>
+  </data>
+  <data name="SettingsVideoUpscalingDescription" xml:space="preserve">
+    <value>Super resolution upscaling requires compatible hardware and driver support.</value>
+  </data>
+  <data name="VideoUpscalingLinear" xml:space="preserve">
+    <value>Çift Doğrusal</value>
+  </data>
+  <data name="VideoUpscalingPoint" xml:space="preserve">
+    <value>Nokta</value>
+  </data>
+  <data name="VideoUpscalingSuper" xml:space="preserve">
+    <value>Süper çözünürlük</value>
+  </data>
+  <data name="SettingsShowChaptersHeader" xml:space="preserve">
+    <value>Mevcut olduğunda bölüm adını görüntüle</value>
+  </data>
+  <data name="SettingsOnScreenControlsHideDelayHeader" xml:space="preserve">
+    <value>Bu sürenin sonunda kontrolleri kapatın</value>
+  </data>
+  <data name="SecondsCount_One" xml:space="preserve">
+    <value>{0} saniye</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="SecondsCount_Other" xml:space="preserve">
+    <value>{0} saniye</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="SettingsLanguageSelectionHeader" xml:space="preserve">
+    <value>Uygulama dili</value>
+  </data>
+  <data name="SettingsLanguageSelectionDescription" xml:space="preserve">
+    <value>Uygulamanın görüntüleme dilini değiştir</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Sistem dilini kullan</value>
+  </data>
+  <data name="SearchNoResults" xml:space="preserve">
+    <value>"{0}" için sonuç bulunamadı</value>
+    <comment>#Format[String searchQuery]</comment>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Klasör</value>
+  </data>
+  <data name="AddToPlaylist" xml:space="preserve">
+    <value>Add to playlist</value>
+  </data>
+  <data name="CreateNewPlaylist" xml:space="preserve">
+    <value>Create new playlist</value>
+  </data>
+  <data name="NewPlaylist" xml:space="preserve">
+    <value>New playlist</value>
+  </data>
+  <data name="SelectedItem" xml:space="preserve">
+    <value>Selected item</value>
+  </data>
+  <data name="SelectedItems" xml:space="preserve">
+    <value>Selected items</value>
+  </data>
+  <data name="NoPlaylists" xml:space="preserve">
+    <value>No playlists</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewPlaylistDefaultName" xml:space="preserve">
+    <value>Untitled playlist</value>
+  </data>
+  <data name="CreatePlaylistPlaceholder" xml:space="preserve">
+    <value>Enter a name for this playlist</value>
+  </data>
+  <data name="Playlists" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="RenamePlaylistPlaceholder" xml:space="preserve">
+    <value>Enter a new name for this playlist</value>
+  </data>
+  <data name="RenamePlaylist" xml:space="preserve">
+    <value>Rename playlist</value>
+  </data>
+  <data name="DeletePlaylist" xml:space="preserve">
+    <value>Delete playlist</value>
+  </data>
+  <data name="DeletePlaylistConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete '{0}' playlist? You cannot undo this action.</value>
+    <comment>#Format[String playlistName]</comment>
+  </data>
+  <data name="SettingsSavePlaybackPositionHeader" xml:space="preserve">
+    <value>Playback position history</value>
+  </data>
+  <data name="SettingsSavePlaybackPositionDescription" xml:space="preserve">
+    <value>Store my playback position history on this device to enable quick session resumption</value>
+  </data>
+  <data name="SettingsClearPlaybackPositionHeader" xml:space="preserve">
+    <value>Clear device playback position history</value>
+  </data>
+  <data name="PlaylistItemsAddedNotificationTitle_One" xml:space="preserve">
+    <value>Added {0} item to playlist "{1}"</value>
+    <comment>#Format[Plural count, String name]</comment>
+  </data>
+  <data name="PlaylistItemsAddedNotificationTitle_Other" xml:space="preserve">
+    <value>Added {0} items to playlist "{1}"</value>
+    <comment>#Format[Plural count, String name]</comment>
+  </data>
+</root>

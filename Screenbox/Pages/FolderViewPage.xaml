@@ -1,0 +1,344 @@
+﻿<Page
+    x:Class="Screenbox.Pages.FolderViewPage"
+    x:Name="PageRoot"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="using:Screenbox.Behaviors"
+    xmlns:commands="using:Screenbox.Commands"
+    xmlns:controls="using:Screenbox.Controls"
+    xmlns:ctAnimations="using:CommunityToolkit.WinUI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:pages="using:Screenbox.Pages"
+    xmlns:storage="using:Windows.Storage"
+    xmlns:strings="using:Screenbox.Strings"
+    xmlns:triggers="using:CommunityToolkit.WinUI"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    xmlns:viewModels="using:Screenbox.Core.ViewModels"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <MenuFlyout x:Key="ItemFlyout">
+                <interactivity:Interaction.Behaviors>
+                    <behaviors:AddToPlaylistFlyoutBehavior TargetSubItemName="AddToPlaylistSubMenu" />
+                </interactivity:Interaction.Behaviors>
+                <MenuFlyoutItem
+                    Command="{x:Bind ViewModel.PlayCommand}"
+                    CommandParameter="{Binding}"
+                    Icon="{ui:FontIcon FontFamily={StaticResource ScreenboxSymbolThemeFontFamily},
+                                       Glyph={StaticResource PlayGlyph}}"
+                    Text="{strings:Resources Key=Play}" />
+                <MenuFlyoutItem
+                    Command="{x:Bind ViewModel.PlayNextCommand}"
+                    CommandParameter="{Binding}"
+                    Icon="{ui:FontIcon FontFamily={StaticResource ScreenboxSymbolThemeFontFamily},
+                                       Glyph={StaticResource PlayAddGlyph}}"
+                    Text="{strings:Resources Key=PlayNext}" />
+                <MenuFlyoutItem
+                    Command="{x:Bind ViewModel.AddToQueueCommand}"
+                    CommandParameter="{Binding}"
+                    Icon="{ui:FontIcon FontFamily={StaticResource ScreenboxSymbolThemeFontFamily},
+                                       Glyph={StaticResource PlaylistMusicGlyph}}"
+                    Text="{strings:Resources Key=AddToQueue}" />
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem
+                    Command="{x:Bind Common.AddToFavoritesCommand}"
+                    CommandParameter="{Binding Media}"
+                    Icon="{ui:FontIcon Glyph=&#xE734;}"
+                    Text="{strings:Resources Key=AddToFavorites}" />
+                <MenuFlyoutItem
+                    Command="{x:Bind Common.AddTagCommand}"
+                    CommandParameter="{Binding}"
+                    Icon="{ui:FontIcon Glyph=&#xE8EC;}"
+                    Text="Add tag" />
+                <MenuFlyoutItem
+                    Command="{x:Bind Common.EditTagsCommand}"
+                    CommandParameter="{Binding}"
+                    Icon="{ui:FontIcon Glyph=&#xE70F;}"
+                    Text="Edit tag" />
+                <MenuFlyoutItem
+                    Command="{x:Bind Common.SetFolderCoverCommand}"
+                    CommandParameter="{Binding}"
+                    Icon="{ui:SymbolIcon Symbol=Pictures}"
+                    Text="Set folder cover" />
+                <MenuFlyoutSubItem
+                    x:Name="AddToPlaylistSubMenu"
+                    Icon="{ui:SymbolIcon Symbol=Add}"
+                    Text="{strings:Resources Key=AddToPlaylist}" />
+                <MenuFlyoutItem
+                    Command="{StaticResource OpenWithCommand}"
+                    CommandParameter="{Binding Media}"
+                    Icon="{ui:FontIcon Glyph=&#xE7AC;}"
+                    Text="{x:Bind strings:Resources.OpenWith}" />
+                <MenuFlyoutItem
+                    Command="{StaticResource ShowPropertiesCommand}"
+                    CommandParameter="{Binding Media}"
+                    Icon="{ui:FontIcon Glyph=&#xE946;}"
+                    Text="{strings:Resources Key=Properties}" />
+                <MenuFlyoutSeparator Visibility="{x:Bind Common.IsAdvancedModeEnabled}" />
+                <MenuFlyoutItem
+                    CommandParameter="{Binding}"
+                    Icon="{ui:SymbolIcon Symbol=Setting}"
+                    Text="{strings:Resources Key=SetPlaybackOptions}"
+                    Visibility="{x:Bind Common.IsAdvancedModeEnabled}">
+                    <MenuFlyoutItem.Command>
+                        <commands:SetPlaybackOptionsCommand PlayCommand="{x:Bind ViewModel.PlayCommand}" />
+                    </MenuFlyoutItem.Command>
+                </MenuFlyoutItem>
+            </MenuFlyout>
+
+            <DataTemplate x:Key="BreadcrumbItemTemplate" x:DataType="storage:StorageFolder">
+                <muxc:BreadcrumbBarItem AutomationProperties.Name="{x:Bind DisplayName}" Content="{x:Bind DisplayName}" />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            x:Name="TitleText"
+            Grid.Row="0"
+            MinHeight="{StaticResource PageHeaderMinHeight}"
+            Margin="{StaticResource BottomMediumMargin}"
+            Padding="{StaticResource ContentPagePadding}"
+            MaxLines="2"
+            Style="{StaticResource TitleMediumTextBlockStyle}"
+            Text="{x:Bind ViewModel.TitleText}">
+            <interactivity:Interaction.Behaviors>
+                <behaviors:OverflowTextToolTipBehavior />
+            </interactivity:Interaction.Behaviors>
+        </TextBlock>
+
+        <StackPanel
+            x:Name="LocationPanel"
+            Grid.Row="1"
+            Margin="{StaticResource ContentPagePadding}"
+            Spacing="6">
+            <TextBlock
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                Style="{StaticResource CaptionTextBlockStyle}"
+                Text="Location" />
+            <muxc:BreadcrumbBar
+                x:Name="BreadcrumbBar"
+                Height="40"
+                AccessKey="{strings:KeyboardResources Key=CommandBreadcrumbBarKey}"
+                ItemClicked="BreadcrumbBar_OnItemClicked"
+                ItemTemplate="{StaticResource BreadcrumbItemTemplate}"
+                ItemsSource="{x:Bind ViewModel.Breadcrumbs}"
+                KeyTipPlacementMode="Right" />
+        </StackPanel>
+
+        <ScrollViewer
+            Grid.Row="2"
+            Margin="{StaticResource ContentPagePadding}"
+            HorizontalScrollBarVisibility="Auto"
+            HorizontalScrollMode="Enabled"
+            Padding="0,0,0,12"
+            VerticalScrollBarVisibility="Disabled"
+            VerticalScrollMode="Disabled"
+            ZoomMode="Disabled">
+            <Grid
+                x:Name="LibraryControlsGrid"
+                ColumnSpacing="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel
+                Grid.Column="0"
+                Width="400"
+                Spacing="6">
+                <TextBlock
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="Search" />
+                <AutoSuggestBox
+                    Width="400"
+                    Height="40"
+                    PlaceholderText="Search videos"
+                    QueryIcon="Find"
+                    Text="{x:Bind ViewModel.SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="1"
+                Width="180"
+                Spacing="6">
+                <TextBlock
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="Thumbnail size" />
+                <ComboBox
+                    Width="180"
+                    Height="40"
+                    ItemsSource="{x:Bind ViewModel.ThumbnailSizeOptions}"
+                    SelectedIndex="{x:Bind ViewModel.SelectedThumbnailSizeIndex, Mode=TwoWay}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="2"
+                Width="190"
+                Spacing="6">
+                <TextBlock
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="Sort" />
+                <ComboBox
+                    x:Name="SortComboBox"
+                    Width="190"
+                    Height="40"
+                    ItemsSource="{x:Bind ViewModel.SortOptions}"
+                    SelectedIndex="{x:Bind ViewModel.SelectedSortIndex, Mode=TwoWay}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="3" Spacing="6">
+                <TextBlock
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="Actions" />
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Button
+                        Width="40"
+                        Height="40"
+                        Padding="0"
+                        Command="{x:Bind ViewModel.RefreshCommand}"
+                        ToolTipService.ToolTip="Refresh">
+                        <SymbolIcon Symbol="Refresh" />
+                    </Button>
+
+                    <ToggleButton
+                        x:Name="SelectionModeToggleButton"
+                        Height="40"
+                        MinWidth="72"
+                        Click="SelectionModeToggleButton_OnClick"
+                        Content="Select" />
+
+                    <Button
+                        x:Name="AddTagsToSelectionButton"
+                        Height="40"
+                        MinWidth="96"
+                        Click="AddTagsToSelectionButton_OnClick"
+                        IsEnabled="False"
+                        Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon
+                                Margin="{StaticResource IconButtonStandardIconMargin}"
+                                Glyph="&#xE8EC;" />
+                            <TextBlock Margin="8,0,0,0" Text="Set tag" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <muxc:ProgressBar
+            Grid.Row="3"
+            Margin="0,4,0,0"
+            VerticalAlignment="Top"
+            IsIndeterminate="True"
+            Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay}" />
+        <GridView
+            x:Name="FolderView"
+            Grid.Row="3"
+            Margin="{StaticResource TopLargeMargin}"
+            Padding="{StaticResource GridViewContentPagePadding}"
+            ui:ListViewExtensions.Command="{x:Bind ViewModel.ClickCommand}"
+            ui:ScrollViewerExtensions.VerticalScrollBarMargin="{x:Bind Common.ScrollBarMargin, Mode=OneWay}"
+            IsItemClickEnabled="True"
+            ItemContainerStyle="{StaticResource GridViewItemMediaCardStyle}"
+            ItemsSource="{x:Bind ViewModel.Items}"
+            Loaded="FolderView_OnLoaded"
+            SelectionChanged="FolderView_OnSelectionChanged"
+            SelectionMode="None">
+            <GridView.Resources>
+                <commands:BindableCommand x:Key="MediaListViewItemPlayCommand" Command="{x:Bind ViewModel.PlayCommand}" />
+            </GridView.Resources>
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:StorageItemViewModel">
+                    <controls:CommonGridViewItem
+                        Title="{x:Bind DisplayName, Mode=OneWay}"
+                        Width="{Binding DataContext.ThumbnailWidth, ElementName=PageRoot}"
+                        AutomationProperties.Name="{x:Bind pages:FolderViewPage.GetAutomationName(IsFile, DisplayName, DisplayCaption, ItemCount), Mode=OneWay}"
+                        CanPlay="{x:Bind IsFile}"
+                        Caption="{x:Bind pages:FolderViewPage.GetCaptionText(IsFile, DisplayCaption, ItemCount, Tag), Mode=OneWay}"
+                        IsPlaying="{Binding Media.IsPlaying, FallbackValue=False}"
+                        IsThumbnailLoading="{x:Bind IsThumbnailLoading, Mode=OneWay}"
+                        ThumbnailHeight="{Binding DataContext.ThumbnailHeight, ElementName=PageRoot}"
+                        ThumbnailSource="{x:Bind ThumbnailSource, Mode=OneWay, FallbackValue={x:Null}}">
+                        <controls:CommonGridViewItem.PlaceholderIconSource>
+                            <FontIconSource FontSize="{StaticResource WideGridItemPlaceholderIconFontSize}" Glyph="{x:Bind StorageItem, Converter={StaticResource MediaGlyphConverter}}" />
+                        </controls:CommonGridViewItem.PlaceholderIconSource>
+                    </controls:CommonGridViewItem>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <GridView.Footer>
+                <Border Height="{x:Bind Common.FooterBottomPaddingHeight, Mode=OneWay}" />
+            </GridView.Footer>
+            <interactivity:Interaction.Behaviors>
+                <behaviors:AutoFocusBehavior />
+                <behaviors:ListViewContextTriggerBehavior ContextRequested="FolderView_OnItemContextRequested" Flyout="{StaticResource ItemFlyout}" />
+                <behaviors:BringIntoViewWithOffsetBehavior FromBottom="{x:Bind Common.FooterBottomPaddingHeight, Mode=OneWay}" />
+                <behaviors:ThumbnailGridViewBehavior />
+            </interactivity:Interaction.Behaviors>
+        </GridView>
+
+        <!--  Empty content  -->
+        <TextBlock
+            x:Name="NoContentText"
+            Grid.Row="3"
+            Margin="{StaticResource TopLargeMargin}"
+            Padding="{StaticResource ContentPagePadding}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Text="{strings:Resources Key=EmptyFolder}"
+            Visibility="{x:Bind ViewModel.IsEmpty, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" />
+
+        <interactivity:Interaction.Behaviors>
+            <behaviors:GamepadXYNavigationBehavior />
+        </interactivity:Interaction.Behaviors>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="NavigationViewStates">
+                <VisualState x:Name="Expanded" />
+                <VisualState x:Name="Compact" />
+                <VisualState x:Name="Minimal">
+                    <VisualState.StateTriggers>
+                        <triggers:IsEqualStateTrigger Value="{x:Bind Common.NavigationViewDisplayMode, Mode=OneWay}" To="{StaticResource MinimalNavigationViewDisplayMode}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitleText.Padding" Value="{StaticResource ContentPageMinimalPadding}" />
+                        <Setter Target="BreadcrumbBar.Margin" Value="0" />
+                        <Setter Target="FolderView.Padding" Value="{StaticResource GridViewContentPageMinimalPadding}" />
+                        <Setter Target="NoContentText.Padding" Value="{StaticResource ContentPageMinimalPadding}" />
+                        <Setter Target="SortComboBox.MinWidth" Value="128" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="SystemEffectsStates">
+                <VisualState x:Name="AnimationsEnabled">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind Common.AnimationsEnabled, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="FolderView.(ctAnimations:ItemsReorderAnimation.Duration)" Value="{StaticResource ControlNormalAnimationDuration}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

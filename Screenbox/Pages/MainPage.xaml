@@ -1,0 +1,614 @@
+﻿<Page
+    x:Class="Screenbox.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animatedVisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
+    xmlns:appModel="using:Windows.ApplicationModel"
+    xmlns:controls="using:Screenbox.Controls"
+    xmlns:converters="using:Screenbox.Converters"
+    xmlns:ctAnimations="using:CommunityToolkit.WinUI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:extensions="using:Screenbox.Extensions"
+    xmlns:helpers="using:Screenbox.Helpers"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Screenbox.Core.Models"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:strings="using:Screenbox.Strings"
+    xmlns:triggers="using:Screenbox.Triggers"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    Loaded="MainPage_Loaded"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Styles/NavigationView.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Thickness x:Key="AppTitleBarExpandedMargin">48,0,0,0</Thickness>
+            <Thickness x:Key="AppTitleBarCompactMargin">72,0,0,0</Thickness>
+            <Thickness x:Key="AppTitleBarMinimalMargin">100,0,0,0</Thickness>
+
+            <x:String x:Key="NavItemTextShowDuration">0:0:0.2</x:String>
+
+            <DataTemplate x:Key="SearchAutoSuggestBoxItemTemplate" x:DataType="models:SearchSuggestionItem">
+                <StackPanel AutomationProperties.Name="{x:Bind converters:SearchSuggestionConverter.GetAutomationName(Name, Type)}" Orientation="Horizontal">
+                    <FontIcon
+                        Margin="0,0,8,0"
+                        FontSize="{StaticResource StandardIconFontSize}"
+                        Glyph="{x:Bind converters:GlyphConverter.ToSearchSuggestionGlyph(Type)}"
+                        Visibility="{x:Bind converters:SearchSuggestionConverter.GetGlyphVisibility(Type)}" />
+                    <TextBlock Text="{x:Bind converters:SearchSuggestionConverter.GetName(Name, Type)}" />
+                </StackPanel>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <controls:TitleBar
+            x:Name="AppTitleBar"
+            Title="{x:Bind appModel:Package.Current.DisplayName}"
+            Margin="{StaticResource AppTitleBarExpandedMargin}"
+            ctAnimations:Implicit.HideAnimations="{StaticResource FadeOutImplicitAnimation}"
+            ctAnimations:Implicit.ShowAnimations="{StaticResource FadeInImplicitAnimation}"
+            Canvas.ZIndex="1"
+            HeightMode="Tall">
+            <controls:TitleBar.Resources>
+                <Thickness x:Key="TitleBarIconMargin">0,0,16,0</Thickness>
+            </controls:TitleBar.Resources>
+            <controls:TitleBar.Icon>
+                <muxc:ImageIcon Source="ms-appx:///Assets/Square44x44Logo.png" />
+            </controls:TitleBar.Icon>
+        </controls:TitleBar>
+
+        <controls:NavigationViewEx
+            x:Name="NavView"
+            AllowDrop="True"
+            BackButtonAccessKey="{x:Bind strings:KeyboardResources.NavigationBackButtonKey}"
+            BackRequested="NavView_BackRequested"
+            CloseButtonAccessKey="{x:Bind strings:KeyboardResources.NavigationCloseButtonKey}"
+            CompactModeThresholdWidth="701"
+            ContentTranslationDirection="Top"
+            DisplayModeChanged="NavView_OnDisplayModeChanged"
+            DragOver="NavView_DragOver"
+            Drop="NavView_Drop"
+            ExpandedModeThresholdWidth="1058"
+            IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
+            IsSettingsVisible="False"
+            IsTitleBarAutoPaddingEnabled="False"
+            PaneClosing="NavView_OnPaneClosing"
+            PaneOpening="NavView_OnPaneOpening"
+            PaneSearchButtonAccessKey="{x:Bind strings:KeyboardResources.NavigationPaneAutoSuggestButtonKey}"
+            PaneSearchButtonStyle="{StaticResource AnimatedNavigationViewPaneSearchButtonStyle}"
+            PaneToggleButtonAccessKey="{x:Bind strings:KeyboardResources.NavigationTogglePaneButtonKey}"
+            ItemInvoked="NavView_ItemInvoked"
+            SelectionChanged="NavView_SelectionChanged">
+            <controls:NavigationViewEx.PaneToggleButtonKeyboardAccelerators>
+                <KeyboardAccelerator Key="E" Modifiers="Control" />
+            </controls:NavigationViewEx.PaneToggleButtonKeyboardAccelerators>
+            <controls:NavigationViewEx.PaneSearchButtonKeyboardAccelerators>
+                <KeyboardAccelerator Key="F" Modifiers="Control" />
+            </controls:NavigationViewEx.PaneSearchButtonKeyboardAccelerators>
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem
+                    extensions:AcceleratorService.ToolTip="{x:Bind HomeNavItemText.Text}"
+                    AccessKey="{strings:KeyboardResources Key=NavigationItemHomeKey}"
+                    Icon="Home"
+                    KeyTipPlacementMode="Right"
+                    Tag="home">
+                    <muxc:NavigationViewItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="H" Modifiers="Control" />
+                    </muxc:NavigationViewItem.KeyboardAccelerators>
+                    <TextBlock x:Name="HomeNavItemText" Text="{strings:Resources Key=Home}" />
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem
+                    extensions:AcceleratorService.ToolTip="{x:Bind VideosNavItemText.Text}"
+                    AccessKey="{strings:KeyboardResources Key=NavigationItemVideosKey}"
+                    KeyTipPlacementMode="Right"
+                    Tag="videos">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource ScreenboxSymbolThemeFontFamily}" Glyph="{StaticResource MoviesGlyph}" />
+                    </muxc:NavigationViewItem.Icon>
+                    <muxc:NavigationViewItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="D" Modifiers="Control" />
+                    </muxc:NavigationViewItem.KeyboardAccelerators>
+                    <TextBlock x:Name="VideosNavItemText" Text="{strings:Resources Key=VideoLibrary}" />
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem
+                    extensions:AcceleratorService.ToolTip="{x:Bind RecentNavItemText.Text}"
+                    KeyTipPlacementMode="Right"
+                    Tag="recent"
+                    Visibility="{x:Bind ViewModel.ShowRecent, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE81C;" />
+                    </muxc:NavigationViewItem.Icon>
+                    <TextBlock x:Name="RecentNavItemText" Text="{strings:Resources Key=Recent}" />
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem
+                    extensions:AcceleratorService.ToolTip="{x:Bind FavoritesNavItemText.Text}"
+                    Icon="Favorite"
+                    KeyTipPlacementMode="Right"
+                    Tag="favorites">
+                    <TextBlock x:Name="FavoritesNavItemText" Text="{strings:Resources Key=Favorites}" />
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItemSeparator />
+                <muxc:NavigationViewItem
+                    extensions:AcceleratorService.ToolTip="{x:Bind PlayQueueNavItemText.Text}"
+                    AccessKey="{strings:KeyboardResources Key=NavigationItemQueueKey}"
+                    KeyTipPlacementMode="Right"
+                    Tag="queue">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon
+                            x:Name="NavItemPlayQueueIcon"
+                            FontFamily="{StaticResource ScreenboxSymbolThemeFontFamily}"
+                            Glyph="{StaticResource PlaylistMusicGlyph}" />
+                    </muxc:NavigationViewItem.Icon>
+                    <muxc:NavigationViewItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="Q" Modifiers="Control" />
+                    </muxc:NavigationViewItem.KeyboardAccelerators>
+                    <TextBlock x:Name="PlayQueueNavItemText" Text="{strings:Resources Key=PlayQueue}" />
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem
+                    extensions:AcceleratorService.ToolTip="{x:Bind PlaylistsNavItemText.Text}"
+                    AccessKey="{x:Bind strings:KeyboardResources.NavigationItemPlaylistKey}"
+                    KeyTipPlacementMode="Right"
+                    Tag="playlists">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource ScreenboxSymbolThemeFontFamily}" Glyph="{StaticResource PlaylistGlyph}" />
+                    </muxc:NavigationViewItem.Icon>
+                    <muxc:NavigationViewItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="P" Modifiers="Control" />
+                    </muxc:NavigationViewItem.KeyboardAccelerators>
+                    <TextBlock x:Name="PlaylistsNavItemText" Text="{strings:Resources Key=Playlists}" />
+                </muxc:NavigationViewItem>
+            </muxc:NavigationView.MenuItems>
+
+            <muxc:NavigationView.PaneFooter>
+                <StackPanel>
+                    <Border
+                        x:Name="ThumbnailLoadingPanel"
+                        Margin="16,8,16,0"
+                        Padding="12"
+                        Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+                        BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Visibility="{x:Bind ViewModel.ShowThumbnailLoadingStatus, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ProgressRing
+                                Width="20"
+                                Height="20"
+                                VerticalAlignment="Center"
+                                IsActive="{x:Bind ViewModel.IsThumbnailLoadingActive, Mode=OneWay}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="{x:Bind ViewModel.ThumbnailLoadingStatusText, Mode=OneWay}"
+                                TextTrimming="CharacterEllipsis" />
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        x:Name="SelectedMediaPanel"
+                        Margin="16,8,16,0"
+                        Padding="0,12,0,0"
+                        BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}"
+                        BorderThickness="0,1,0,0"
+                        Visibility="{x:Bind ViewModel.HasSelectedMedia, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+                        <StackPanel>
+                        <TextBlock
+                            MaxLines="2"
+                            Style="{StaticResource BodyStrongTextBlockStyle}"
+                            Text="{x:Bind ViewModel.SelectedMediaName, Mode=OneWay}"
+                            TextTrimming="WordEllipsis"
+                            TextWrapping="WrapWholeWords" />
+
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            Style="{StaticResource CaptionTextBlockStyle}"
+                            Text="Path" />
+                        <TextBlock
+                            MaxLines="3"
+                            Style="{StaticResource CaptionTextBlockStyle}"
+                            Text="{x:Bind ViewModel.SelectedMediaPath, Mode=OneWay}"
+                            TextTrimming="WordEllipsis"
+                            TextWrapping="WrapWholeWords" />
+
+                        <Grid Margin="0,10,0,0" RowSpacing="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="Duration" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="12,0,0,0"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="{x:Bind ViewModel.SelectedMediaDuration, Mode=OneWay}"
+                                TextAlignment="Right" />
+
+                            <TextBlock
+                                Grid.Row="1"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="Resolution" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="12,0,0,0"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="{x:Bind ViewModel.SelectedMediaResolution, Mode=OneWay}"
+                                TextAlignment="Right" />
+
+                            <TextBlock
+                                Grid.Row="2"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="Size" />
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Margin="12,0,0,0"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="{x:Bind ViewModel.SelectedMediaSize, Mode=OneWay}"
+                                TextAlignment="Right" />
+
+                            <TextBlock
+                                Grid.Row="3"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="Last watched" />
+                            <TextBlock
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Margin="12,0,0,0"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="{x:Bind ViewModel.SelectedMediaLastWatched, Mode=OneWay}"
+                                TextAlignment="Right" />
+
+                            <TextBlock
+                                Grid.Row="4"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="Favorite" />
+                            <TextBlock
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Margin="12,0,0,0"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                Text="{x:Bind ViewModel.SelectedMediaFavoriteStatus, Mode=OneWay}"
+                                TextAlignment="Right" />
+                        </Grid>
+
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            Style="{StaticResource CaptionTextBlockStyle}"
+                            Text="Tag" />
+                        <TextBlock
+                            MaxLines="3"
+                            Style="{StaticResource CaptionTextBlockStyle}"
+                            Text="{x:Bind ViewModel.SelectedMediaTags, Mode=OneWay}"
+                            TextTrimming="WordEllipsis"
+                            TextWrapping="WrapWholeWords" />
+                        <Button
+                            Margin="0,8,0,0"
+                            Command="{x:Bind ViewModel.EditSelectedTagsCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,8,0"
+                                    FontSize="{StaticResource StandardIconFontSize}"
+                                    Glyph="&#xE70F;" />
+                                <TextBlock Text="Edit tag" />
+                            </StackPanel>
+                        </Button>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </muxc:NavigationView.PaneFooter>
+
+            <muxc:NavigationView.FooterMenuItems>
+                <!--  Reimplement settings nav item to allow transition  -->
+                <muxc:NavigationViewItem
+                    extensions:AcceleratorService.ToolTip="{x:Bind SettingsNavItemText.Text}"
+                    AccessKey="{strings:KeyboardResources Key=NavigationItemSettingsKey}"
+                    KeyTipPlacementMode="Right"
+                    Tag="settings">
+                    <muxc:NavigationViewItem.Icon>
+                        <muxc:AnimatedIcon>
+                            <animatedVisuals:AnimatedSettingsVisualSource />
+                            <muxc:AnimatedIcon.FallbackIconSource>
+                                <muxc:SymbolIconSource Symbol="Setting" />
+                            </muxc:AnimatedIcon.FallbackIconSource>
+                        </muxc:AnimatedIcon>
+                    </muxc:NavigationViewItem.Icon>
+                    <muxc:NavigationViewItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="G" Modifiers="Control" />
+                    </muxc:NavigationViewItem.KeyboardAccelerators>
+                    <TextBlock x:Name="SettingsNavItemText" Text="{strings:Resources Key=Settings}" />
+                </muxc:NavigationViewItem>
+            </muxc:NavigationView.FooterMenuItems>
+
+            <muxc:NavigationView.AutoSuggestBox>
+                <AutoSuggestBox
+                    x:Name="NavViewSearchBox"
+                    extensions:AcceleratorService.ToolTip="{x:Bind NavViewSearchBox.(AutomationProperties.Name)}"
+                    AccessKey="{strings:KeyboardResources Key=NavigationPaneAutoSuggestButtonKey}"
+                    AccessKeyInvoked="NavViewSearchBox_OnAccessKeyInvoked"
+                    AutomationProperties.Name="{strings:Resources Key=SearchBoxToolTip}"
+                    ItemTemplate="{StaticResource SearchAutoSuggestBoxItemTemplate}"
+                    ItemsSource="{x:Bind ViewModel.SearchSuggestions, Mode=OneWay}"
+                    KeyTipPlacementMode="Right"
+                    PlaceholderText="{strings:Resources Key=SearchBoxPlaceholderText}"
+                    QueryIcon="Find"
+                    QuerySubmitted="NavViewSearchBox_OnQuerySubmitted"
+                    SuggestionChosen="NavViewSearchBox_OnSuggestionChosen"
+                    Text="{x:Bind ViewModel.SearchQuery, Mode=TwoWay}"
+                    TextChanged="NavViewSearchBox_OnTextChanged"
+                    UpdateTextOnSelect="False">
+                    <AutoSuggestBox.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                            Key="F"
+                            Invoked="NavViewSearchBoxKeyboardAcceleratorFocus_OnInvoked"
+                            Modifiers="Control" />
+                    </AutoSuggestBox.KeyboardAccelerators>
+                </AutoSuggestBox>
+            </muxc:NavigationView.AutoSuggestBox>
+
+            <controls:NavigationViewEx.Overlay>
+                <Frame x:Name="PlayerFrame" />
+            </controls:NavigationViewEx.Overlay>
+
+            <Grid x:Name="ContentGrid" Padding="0,48,0,0">
+                <Frame
+                    x:Name="ContentFrame"
+                    Navigated="ContentFrame_Navigated"
+                    NavigationFailed="ContentFrame_NavigationFailed" />
+
+                <controls:NotificationView
+                    x:Name="NotificationView"
+                    MaxWidth="400"
+                    Margin="10,0,10,16"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom" />
+            </Grid>
+        </controls:NavigationViewEx>
+
+        <Border
+            x:Name="PaneResizeHandle"
+            Width="8"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Stretch"
+            Background="Transparent"
+            Canvas.ZIndex="2"
+            PointerCanceled="PaneResizeHandle_OnPointerReleased"
+            PointerEntered="PaneResizeHandle_OnPointerEntered"
+            PointerExited="PaneResizeHandle_OnPointerExited"
+            PointerMoved="PaneResizeHandle_OnPointerMoved"
+            PointerPressed="PaneResizeHandle_OnPointerPressed"
+            PointerReleased="PaneResizeHandle_OnPointerReleased" />
+
+        <!--  Critical error  -->
+        <controls:ErrorInfo
+            x:Name="CriticalErrorInfo"
+            Margin="0,32,0,0"
+            Padding="{StaticResource ContentPagePadding}"
+            Description="{x:Bind strings:Resources.CriticalError}"
+            Emoticon="Sad"
+            Message="{x:Bind ViewModel.CriticalErrorMessage, Mode=OneWay}"
+            NavigateUri="https://github.com/huynhsontung/Screenbox"
+            Visibility="Collapsed">
+            <Border Background="{ThemeResource SystemControlForegroundChromeWhiteBrush}">
+                <Path
+                    Data="M16,18 H44 M48,18 H56 M60,18 H68 M80,18 H100 M104,18 H132 M16,22 H20 M40,22 H44 M48,22 H56 M80,22 H84 M88,22 H92 M104,22 H108 M128,22 H132 M16,26 H20 M24,26 H36 M40,26 H44 M52,26 H76 M92,26 H96 M104,26 H108 M112,26 H124 M128,26 H132 M16,30 H20 M24,30 H36 M40,30 H44 M48,30 H52 M68,30 H80 M84,30 H88 M92,30 H100 M104,30 H108 M112,30 H124 M128,30 H132 M16,34 H20 M24,34 H36 M40,34 H44 M56,34 H60 M68,34 H84 M92,34 H96 M104,34 H108 M112,34 H124 M128,34 H132 M16,38 H20 M40,38 H44 M52,38 H56 M64,38 H68 M72,38 H76 M80,38 H84 M92,38 H100 M104,38 H108 M128,38 H132 M16,42 H44 M48,42 H52 M56,42 H60 M64,42 H68 M72,42 H76 M80,42 H84 M88,42 H92 M96,42 H100 M104,42 H132 M48,46 H52 M60,46 H64 M72,46 H80 M84,46 H88 M16,50 H20 M24,50 H32 M36,50 H48 M60,50 H68 M72,50 H76 M84,50 H100 M104,50 H108 M116,50 H120 M124,50 H132 M16,54 H20 M28,54 H36 M48,54 H56 M80,54 H84 M92,54 H100 M104,54 H116 M128,54 H132 M20,58 H24 M32,58 H44 M48,58 H56 M64,58 H76 M80,58 H84 M96,58 H104 M108,58 H112 M120,58 H128 M16,62 H20 M24,62 H40 M56,62 H72 M76,62 H84 M88,62 H96 M100,62 H108 M112,62 H116 M128,62 H132 M36,66 H44 M48,66 H64 M68,66 H80 M84,66 H88 M92,66 H96 M116,66 H124 M20,70 H24 M28,70 H40 M44,70 H48 M52,70 H64 M68,70 H84 M92,70 H96 M104,70 H108 M120,70 H132 M16,74 H24 M32,74 H36 M40,74 H44 M52,74 H56 M60,74 H68 M72,74 H76 M84,74 H100 M104,74 H108 M120,74 H132 M28,78 H32 M36,78 H40 M44,78 H68 M72,78 H76 M92,78 H116 M124,78 H128 M28,82 H44 M48,82 H52 M68,82 H72 M80,82 H84 M88,82 H100 M112,82 H120 M124,82 H128 M20,86 H24 M28,86 H32 M48,86 H56 M72,86 H76 M84,86 H88 M108,86 H112 M116,86 H128 M16,90 H20 M28,90 H32 M40,90 H48 M52,90 H56 M76,90 H88 M96,90 H100 M104,90 H116 M120,90 H124 M36,94 H40 M44,94 H48 M60,94 H68 M72,94 H88 M104,94 H116 M120,94 H124 M20,98 H52 M64,98 H72 M76,98 H92 M96,98 H124 M48,102 H56 M60,102 H64 M68,102 H72 M96,102 H100 M112,102 H132 M16,106 H44 M48,106 H56 M64,106 H72 M80,106 H100 M104,106 H108 M112,106 H120 M124,106 H128 M16,110 H20 M40,110 H44 M48,110 H52 M56,110 H64 M76,110 H80 M96,110 H100 M112,110 H120 M124,110 H132 M16,114 H20 M24,114 H36 M40,114 H44 M52,114 H68 M72,114 H80 M84,114 H88 M96,114 H116 M120,114 H132 M16,118 H20 M24,118 H36 M40,118 H44 M48,118 H52 M64,118 H96 M100,118 H104 M108,118 H120 M128,118 H132 M16,122 H20 M24,122 H36 M40,122 H44 M48,122 H72 M80,122 H84 M88,122 H92 M96,122 H100 M108,122 H112 M120,122 H124 M128,122 H132 M16,126 H20 M40,126 H44 M60,126 H64 M68,126 H76 M80,126 H84 M96,126 H104 M108,126 H112 M116,126 H120 M124,126 H128 M16,130 H44 M48,130 H56 M72,130 H80 M88,130 H108 M124,130 H128"
+                    Stroke="{ThemeResource SystemControlBackgroundAccentBrush}"
+                    StrokeThickness="4" />
+            </Border>
+        </controls:ErrorInfo>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowActivationStates">
+                <VisualState x:Name="Deactivated">
+                    <VisualState.StateTriggers>
+                        <triggers:WindowActivationModeTrigger ActivationMode="Deactivated" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NavView.IsBackEnabled" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="CriticalErrorStates">
+                <VisualState x:Name="CriticalErrorVisible">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.HasCriticalError, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AppTitleBar.Margin" Value="16,0,0,0" />
+                        <Setter Target="AppTitleBar.HeightMode" Value="Standard" />
+                        <Setter Target="NavView.Visibility" Value="Collapsed" />
+                        <Setter Target="CriticalErrorInfo.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="NavigationViewStates">
+                <VisualState x:Name="Expanded" />
+                <VisualState x:Name="Compact">
+                    <VisualState.Setters>
+                        <Setter Target="AppTitleBar.Margin" Value="{StaticResource AppTitleBarCompactMargin}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CompactPaneOverlay">
+                    <VisualState.Setters>
+                        <Setter Target="AppTitleBar.Margin" Value="{StaticResource AppTitleBarExpandedMargin}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Minimal">
+                    <VisualState.Setters>
+                        <Setter Target="AppTitleBar.Margin" Value="{StaticResource AppTitleBarMinimalMargin}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Hidden">
+                    <VisualState.Setters>
+                        <Setter Target="AppTitleBar.Visibility" Value="Collapsed" />
+                        <Setter Target="NavView.ContentVisibility" Value="Collapsed" />
+                        <Setter Target="NavView.OverlayZIndex" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualStateGroup.Transitions>
+                    <VisualTransition From="Compact" To="Expanded">
+                        <Storyboard>
+                            <!--  24 offset is derived by subtracting AppTitleBarExpandedMargin from AppTitleBarCompactMargin (72 - 48).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="24" TargetName="AppTitleBar" />
+                            <!--  -272 offset is derived from subtracting OpenPaneLength from CompactPaneLength (48 - 320).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="-272" TargetName="PlayerFrame" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="HomeNavItemText"
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                To="1"
+                                Duration="{StaticResource NavItemTextShowDuration}" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="VideosNavItemText"
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                To="1"
+                                Duration="{StaticResource NavItemTextShowDuration}" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="FavoritesNavItemText"
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                To="1"
+                                Duration="{StaticResource NavItemTextShowDuration}" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="PlayQueueNavItemText"
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                To="1"
+                                Duration="{StaticResource NavItemTextShowDuration}" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="PlaylistsNavItemText"
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                To="1"
+                                Duration="{StaticResource NavItemTextShowDuration}" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="SettingsNavItemText"
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                To="1"
+                                Duration="{StaticResource NavItemTextShowDuration}" />
+                        </Storyboard>
+                    </VisualTransition>
+
+                    <VisualTransition From="Expanded" To="Compact">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AppTitleBar" Storyboard.TargetProperty="Margin">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource AppTitleBarCompactMargin}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <!--  -24 offset is derived by subtracting AppTitleBarCompactMargin from AppTitleBarExpandedMargin (48 - 72).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="-24" TargetName="AppTitleBar" />
+                            <!--  272 offset is derived from subtracting CompactPaneLength from OpenPaneLength (320 - 48).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="272" TargetName="PlayerFrame" />
+                        </Storyboard>
+                    </VisualTransition>
+
+                    <VisualTransition From="Compact" To="Minimal">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AppTitleBar" Storyboard.TargetProperty="Margin">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource AppTitleBarMinimalMargin}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <!--  -28 offset is derived by subtracting AppTitleBarMinimalMargin from AppTitleBarCompactMargin (72 - 100).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="-28" TargetName="AppTitleBar" />
+                            <!--  48 offset corresponds to CompactPaneLength (48).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="48" TargetName="PlayerFrame" />
+                            <!--  40 offset is derived by subtracting ...PageMinimalPadding from ...PagePadding (52/56 - 12/16).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="40" TargetName="ContentFrame" />
+                        </Storyboard>
+                    </VisualTransition>
+
+                    <VisualTransition From="Minimal" To="Compact">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AppTitleBar" Storyboard.TargetProperty="Margin">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource AppTitleBarCompactMargin}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <!--  28 offset is derived by subtracting AppTitleBarCompactMargin from AppTitleBarMinimalMargin (100 - 72).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="28" TargetName="AppTitleBar" />
+                            <!--  -48 offset is derived from subtracting CompactPaneLength (48).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="-48" TargetName="PlayerFrame" />
+                            <!--  -40 offset is derived by subtracting ...PagePadding from ...PageMinimalPadding (12/16 - 52/56).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="-40" TargetName="ContentFrame" />
+                        </Storyboard>
+                    </VisualTransition>
+
+                    <VisualTransition From="Compact" To="CompactPaneOverlay">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AppTitleBar" Storyboard.TargetProperty="Margin">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource AppTitleBarExpandedMargin}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <!--  24 offset is derived by subtracting AppTitleBarExpandedMargin from AppTitleBarCompactMargin (72 - 48).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="24" TargetName="AppTitleBar" />
+                        </Storyboard>
+                    </VisualTransition>
+
+                    <VisualTransition From="CompactPaneOverlay" To="Compact">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AppTitleBar" Storyboard.TargetProperty="Margin">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource AppTitleBarCompactMargin}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <!--  -24 offset is derived by subtracting AppTitleBarCompactMargin from AppTitleBarExpandedMargin (48 - 72).  -->
+                            <RepositionThemeAnimation FromHorizontalOffset="-24" TargetName="AppTitleBar" />
+                        </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="ContentFrameMarginStates">
+                <VisualState x:Name="HiddenMargin" />
+                <VisualState x:Name="NormalMargin">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.ShouldUseMargin, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ContentFrame.Margin" Value="0,0,0,42" />
+                        <Setter Target="NotificationView.Margin" Value="10,0,10,148" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="FlowDirectionStates">
+                <VisualState x:Name="LeftToRight" />
+
+                <VisualState x:Name="RightToLeft">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind helpers:GlobalizationHelper.IsRightToLeftLanguage}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NavItemPlayQueueIcon.Glyph" Value="{StaticResource PlaylistMusicMirroredGlyph}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

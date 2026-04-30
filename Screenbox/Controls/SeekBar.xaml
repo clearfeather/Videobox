@@ -1,0 +1,67 @@
+﻿<UserControl
+    x:Class="Screenbox.Controls.SeekBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Screenbox.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:strings="using:Screenbox.Strings"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <StaticResource x:Key="SliderTrackFillPointerOver" ResourceKey="SystemControlTransparentBrush" />
+            <StaticResource x:Key="SliderTrackFillPressed" ResourceKey="SystemControlTransparentBrush" />
+            <StaticResource x:Key="SliderTrackValueFillPointerOver" ResourceKey="SystemControlTransparentBrush" />
+            <StaticResource x:Key="SliderTrackValueFillPressed" ResourceKey="SystemControlTransparentBrush" />
+            <!-- <SolidColorBrush x:Key="SliderOuterThumbBackground" Color="WhiteSmoke" /> -->
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid FlowDirection="LeftToRight">
+        <controls:ChapterProgressBar
+            x:Name="PlayerProgressBar"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            AutomationProperties.AccessibilityView="Raw"
+            Chapters="{x:Bind ViewModel.Chapters, Mode=OneWay}"
+            Maximum="{x:Bind SeekBarSlider.Maximum, Mode=OneWay}"
+            Value="{x:Bind SeekBarSlider.Value, Mode=OneWay}" />
+        <muxc:ProgressBar
+            x:Name="BufferingProgressBar"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            AutomationProperties.AccessibilityView="Raw"
+            IsIndeterminate="True"
+            Visibility="{x:Bind ViewModel.BufferingVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+        <controls:CustomSlider
+            x:Name="SeekBarSlider"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            AccessKey="{strings:KeyboardResources Key=PlayerSeekBarKey}"
+            AutomationProperties.Name="{strings:Resources Key=Seek}"
+            Background="{x:Bind Background, Mode=OneWay}"
+            Foreground="{x:Bind Foreground, Mode=OneWay}"
+            IsEnabled="{x:Bind ViewModel.IsSeekable, Mode=OneWay, FallbackValue=False}"
+            IsKeyDownEnabled="{x:Bind ViewModel.ShouldHandleKeyDown, Mode=OneWay}"
+            IsThumbToolTipEnabled="{x:Bind ViewModel.ShouldShowPreview, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
+            LargeChange="10000"
+            Loaded="SeekBarSlider_OnLoaded"
+            Maximum="{x:Bind ViewModel.Length, Mode=OneWay, FallbackValue=0}"
+            Minimum="0"
+            PointerCanceled="SeekBarSlider_OnPointerExited"
+            PointerEntered="SeekBarSlider_OnPointerEntered"
+            PointerExited="SeekBarSlider_OnPointerExited"
+            PointerWheelChanged="SeekBarSlider_OnPointerWheelChanged"
+            SizeChanged="SeekBarSlider_OnSizeChanged"
+            SmallChange="5000"
+            Style="{StaticResource DefaultSliderStyle}"
+            ThumbToolTipValueConverter="{StaticResource HumanizedDurationConverter}"
+            ValueChanged="{x:Bind ViewModel.OnSeekBarValueChanged}"
+            Visibility="{x:Bind ProgressOnly, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=true}"
+            Value="{x:Bind ViewModel.Time, Mode=OneWay}" />
+    </Grid>
+</UserControl>

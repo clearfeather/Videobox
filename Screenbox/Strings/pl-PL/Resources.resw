@@ -1,0 +1,1068 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FrameSavedNotificationTitle" xml:space="preserve">
+    <value>Zapisano klatkę</value>
+  </data>
+  <data name="CompactOverlayToggle_Variant0" xml:space="preserve">
+    <value>Obraz w obrazie</value>
+  </data>
+  <data name="SaveCurrentFrame" xml:space="preserve">
+    <value>Zapisz bieżącą klatkę</value>
+  </data>
+  <data name="Loop" xml:space="preserve">
+    <value>Pętla</value>
+  </data>
+  <data name="PlaybackSpeed" xml:space="preserve">
+    <value>Prędkość odtwarzania</value>
+  </data>
+  <data name="VolumeChangeStatusMessage" xml:space="preserve">
+    <value>Głośność {0:F0}%</value>
+    <comment>#Format[Double volume]</comment>
+  </data>
+  <data name="FailedToSaveFrameNotificationTitle" xml:space="preserve">
+    <value>Nie udało się zapisać klatki</value>
+  </data>
+  <data name="TimeElapsed" xml:space="preserve">
+    <value>Upłynęło</value>
+  </data>
+  <data name="TimeRemaining" xml:space="preserve">
+    <value>Pozostało czasu</value>
+  </data>
+  <data name="TimeLength" xml:space="preserve">
+    <value>Całkowita długość</value>
+  </data>
+  <data name="ChapterName" xml:space="preserve">
+    <value>Rozdział {0}</value>
+    <comment>#Format[Int32 chapter]</comment>
+  </data>
+  <data name="FailedToLoadSubtitleNotificationTitle" xml:space="preserve">
+    <value>Nie udało się załadować napisów</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Wstecz</value>
+  </data>
+  <data name="MuteToggle_Variant0" xml:space="preserve">
+    <value>Wycisz</value>
+  </data>
+  <data name="MuteToggle_Variant1" xml:space="preserve">
+    <value>Wyłącz wyciszenie</value>
+  </data>
+  <data name="FullscreenToggle_Variant0" xml:space="preserve">
+    <value>Tryb pełnoekranowy</value>
+  </data>
+  <data name="AudioAndCaption" xml:space="preserve">
+    <value>Dźwięk i napisy</value>
+  </data>
+  <data name="FullscreenToggle_Variant1" xml:space="preserve">
+    <value>Zamknij tryb pełnoekranowy</value>
+  </data>
+  <data name="Volume" xml:space="preserve">
+    <value>Głośność</value>
+  </data>
+  <data name="VolumeSliderTooltip" xml:space="preserve">
+    <value>Dostosuj głośność</value>
+  </data>
+  <data name="Seek" xml:space="preserve">
+    <value>Przeszukaj</value>
+  </data>
+  <data name="CompactOverlayToggle_Variant1" xml:space="preserve">
+    <value>Wyłącz tryb obrazu w obrazie</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Następny</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Poprzedni</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Odtwarzaj</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Zatrzymaj</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Więcej</value>
+  </data>
+  <data name="PlayQueue" xml:space="preserve">
+    <value>Odtwarzaj kolejkę</value>
+  </data>
+  <data name="RepeatMode_Variant0" xml:space="preserve">
+    <value>Powtarzanie: wyłączone</value>
+  </data>
+  <data name="RepeatMode_Variant2" xml:space="preserve">
+    <value>Powtarzaj: Wszystkie</value>
+  </data>
+  <data name="RepeatMode_Variant1" xml:space="preserve">
+    <value>Powtarzaj: Jeden</value>
+  </data>
+  <data name="ItemsSelected_One" xml:space="preserve">
+    <value>{0} wybrany element</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="ItemsSelected_Other" xml:space="preserve">
+    <value>{0} wybranych elementów</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="AddToQueue" xml:space="preserve">
+    <value>Dodaj do kolejki</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Zaznacz wszystko</value>
+  </data>
+  <data name="SelectAllToolTip" xml:space="preserve">
+    <value>Zaznacz wszystko w tym widoku</value>
+  </data>
+  <data name="SelectNone" xml:space="preserve">
+    <value>Odznacz wszystko</value>
+  </data>
+  <data name="SelectNoneToolTip" xml:space="preserve">
+    <value>Wyczyść wybór</value>
+  </data>
+  <data name="ClearSelection" xml:space="preserve">
+    <value>Wyczyść zaznaczenie</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="PlayNext" xml:space="preserve">
+    <value>Odtwórz jako następny</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Przesuń do góry</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Przenieś w dół</value>
+  </data>
+  <data name="IsPlaying" xml:space="preserve">
+    <value>Odtwarzany</value>
+    <comment>Tool tip on which item is currently playing</comment>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Filmy</value>
+  </data>
+  <data name="EmptyFolder" xml:space="preserve">
+    <value>Ten folder jest pusty</value>
+  </data>
+  <data name="ItemsCount_One" xml:space="preserve">
+    <value>{0} element</value>
+    <comment>#Format[Plural]</comment>
+  </data>
+  <data name="ItemsCount_Other" xml:space="preserve">
+    <value>{0} elementów</value>
+    <comment>#Format[Plural]</comment>
+  </data>
+  <data name="ItemsCount_None" xml:space="preserve">
+    <value>Pusto</value>
+  </data>
+  <data name="RestoreView" xml:space="preserve">
+    <value>Przywróć widok immersyjny</value>
+  </data>
+  <data name="MinimizeImmersiveView" xml:space="preserve">
+    <value>Minimalizuj widok immersyjny</value>
+  </data>
+  <data name="Cast" xml:space="preserve">
+    <value>Prześlij</value>
+  </data>
+  <data name="StopCast" xml:space="preserve">
+    <value>Zatrzymaj przesyłanie</value>
+  </data>
+  <data name="CastingTo" xml:space="preserve">
+    <value>Przesyłanie do</value>
+  </data>
+  <data name="CastToDevice" xml:space="preserve">
+    <value>Przesyłaj do urządzenia</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Wyłącz</value>
+  </data>
+  <data name="Music" xml:space="preserve">
+    <value>Muzyka</value>
+  </data>
+  <data name="ShuffleAndPlay" xml:space="preserve">
+    <value>Odtwarzaj losowo</value>
+  </data>
+  <data name="UnknownArtist" xml:space="preserve">
+    <value>Nieznany wykonawca</value>
+  </data>
+  <data name="UnknownAlbum" xml:space="preserve">
+    <value>Nieznany album</value>
+  </data>
+  <data name="UnknownGenre" xml:space="preserve">
+    <value>Nieznany gatunek</value>
+  </data>
+  <data name="AddFolder" xml:space="preserve">
+    <value>Dodaj katalog</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Strona główna</value>
+  </data>
+  <data name="Multiselect" xml:space="preserve">
+    <value>Zaznacz wiele</value>
+  </data>
+  <data name="NoMusicPanelHeader" xml:space="preserve">
+    <value>Nie mogliśmy znaleźć żadnej muzyki</value>
+  </data>
+  <data name="NoMusicPanelSubtext" xml:space="preserve">
+    <value>Twoja biblioteka muzyczna nie zawiera żadnych treści muzycznych.</value>
+  </data>
+  <data name="OpenFiles" xml:space="preserve">
+    <value>Otwórz plik(i)</value>
+  </data>
+  <data name="SearchBoxPlaceholderText" xml:space="preserve">
+    <value>Wyszukaj</value>
+  </data>
+  <data name="SearchBoxToolTip" xml:space="preserve">
+    <value>Szukaj filmy, piosenki, albumy i więcej</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="WelcomePanelHeader" xml:space="preserve">
+    <value>Witaj w Screenbox</value>
+  </data>
+  <data name="WelcomePanelSubtext" xml:space="preserve">
+    <value>Zacznijmy odtwarzać niektóre treści multimedialne.</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Właściwości</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="OpenFileLocation" xml:space="preserve">
+    <value>Otwórz lokalizację pliku</value>
+  </data>
+  <data name="OpenWith" xml:space="preserve">
+    <value>Open with</value>
+  </data>
+  <data name="PropertyAlbum" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="PropertyAlbumArtist" xml:space="preserve">
+    <value>Wykonawca albumu</value>
+  </data>
+  <data name="PropertyBitRate" xml:space="preserve">
+    <value>Przepływność bitowa</value>
+  </data>
+  <data name="PropertyContentType" xml:space="preserve">
+    <value>Typ zawartości</value>
+  </data>
+  <data name="PropertyContributingArtists" xml:space="preserve">
+    <value>Współtwórcy</value>
+  </data>
+  <data name="PropertyFileLocation" xml:space="preserve">
+    <value>Lokalizacja pliku</value>
+  </data>
+  <data name="PropertyFileType" xml:space="preserve">
+    <value>Rodzaj pliku</value>
+  </data>
+  <data name="PropertyGenre" xml:space="preserve">
+    <value>Gatunek</value>
+  </data>
+  <data name="PropertyLastModified" xml:space="preserve">
+    <value>Data ostatniej modyfikacji</value>
+  </data>
+  <data name="PropertyLength" xml:space="preserve">
+    <value>Długość</value>
+  </data>
+  <data name="PropertyProducers" xml:space="preserve">
+    <value>Producenci</value>
+  </data>
+  <data name="PropertyResolution" xml:space="preserve">
+    <value>Rozdzielczość</value>
+  </data>
+  <data name="PropertySize" xml:space="preserve">
+    <value>Rozmiar</value>
+  </data>
+  <data name="PropertySubtitle" xml:space="preserve">
+    <value>Podtytuł</value>
+  </data>
+  <data name="PropertyTitle" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="PropertyTrack" xml:space="preserve">
+    <value>Utwór</value>
+  </data>
+  <data name="PropertyWriters" xml:space="preserve">
+    <value>Autorzy</value>
+  </data>
+  <data name="PropertyYear" xml:space="preserve">
+    <value>Rok</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Niestandardowe</value>
+  </data>
+  <data name="Network" xml:space="preserve">
+    <value>Sieć</value>
+  </data>
+  <data name="NoNetworkDrivePanelHeader" xml:space="preserve">
+    <value>Brak dostępnych urządzeń sieciowych</value>
+  </data>
+  <data name="NoNetworkDrivePanelSubtext" xml:space="preserve">
+    <value>Nie możesz znaleźć twoich mediów? Upewnij się, że urządzenie sieciowe jest sparowane w ustawieniach systemu Windows.</value>
+  </data>
+  <data name="Recent" xml:space="preserve">
+    <value>Ostatnie</value>
+  </data>
+  <data name="VideoSettings" xml:space="preserve">
+    <value>Ustawienia wideo</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Otwórz</value>
+  </data>
+  <data name="LocationSpecified_One" xml:space="preserve">
+    <value>{0} wybrana lokalizacja</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="LocationSpecified_Other" xml:space="preserve">
+    <value>{0} wybranych lokalizacji</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="ShuffleMode_Variant0" xml:space="preserve">
+    <value>Wyłącz odtwarzanie losowanie</value>
+  </data>
+  <data name="ShuffleMode_Variant1" xml:space="preserve">
+    <value>Włącz odtwarzanie losowanie</value>
+  </data>
+  <data name="ResumePositionNotificationTitle" xml:space="preserve">
+    <value>Wznów z miejsca, w którym skończyłeś</value>
+  </data>
+  <data name="GoToPosition" xml:space="preserve">
+    <value>Przejdź do {0}</value>
+    <comment>#Format[String position]</comment>
+  </data>
+  <data name="Albums" xml:space="preserve">
+    <value>Albumy</value>
+  </data>
+  <data name="Artists" xml:space="preserve">
+    <value>Wykonawcy</value>
+  </data>
+  <data name="Song" xml:space="preserve">
+    <value>Utwór</value>
+  </data>
+  <data name="Songs" xml:space="preserve">
+    <value>Utwory</value>
+  </data>
+  <data name="OpenFilesToolTip" xml:space="preserve">
+    <value>Przeglądaj pliki do odtwarzania</value>
+  </data>
+  <data name="OpenFilesSecondaryToolTip" xml:space="preserve">
+    <value>Więcej opcji otwierania mediów</value>
+  </data>
+  <data name="AddFiles" xml:space="preserve">
+    <value>Dodaj plik(i)</value>
+  </data>
+  <data name="AddFilesToPlayQueueToolTip" xml:space="preserve">
+    <value>Przeglądaj plik(i), aby dodać do kolejki odtwarzania</value>
+  </data>
+  <data name="AddFilesToPlayQueueSecondaryToolTip" xml:space="preserve">
+    <value>Więcej opcji dodawania mediów do kolejki odtwarzania</value>
+  </data>
+  <data name="AddMusicFolderToolTip" xml:space="preserve">
+    <value>Dodaj folder do biblioteki muzycznej</value>
+  </data>
+  <data name="AddUrl" xml:space="preserve">
+    <value>Dodaj media z adresu URL</value>
+  </data>
+  <data name="AddVideoFolderToolTip" xml:space="preserve">
+    <value>Dodaj folder do biblioteki wideo</value>
+  </data>
+  <data name="OpenFolder" xml:space="preserve">
+    <value>Otwórz folder</value>
+  </data>
+  <data name="OpenUrl" xml:space="preserve">
+    <value>Otwórz adres URL</value>
+  </data>
+  <data name="SongsCount_None" xml:space="preserve">
+    <value>Pusto</value>
+  </data>
+  <data name="SongsCount_One" xml:space="preserve">
+    <value>{0} utwór</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="SongsCount_Other" xml:space="preserve">
+    <value>{0} utworów</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="AlbumsCount_One" xml:space="preserve">
+    <value>{0} album</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="AlbumsCount_Other" xml:space="preserve">
+    <value>{0} albumów</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="RunTime" xml:space="preserve">
+    <value>Czas odtwarzania {0}</value>
+    <comment>#Format[String runtime]</comment>
+  </data>
+  <data name="AllVideos" xml:space="preserve">
+    <value>Wszystkie filmy</value>
+  </data>
+  <data name="VideoFolders" xml:space="preserve">
+    <value>Foldery wideo</value>
+  </data>
+  <data name="SearchResultHeader" xml:space="preserve">
+    <value>Wyniki wyszukiwania dla "{0}"</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Pokaż wszystko</value>
+  </data>
+  <data name="SearchResultArtistHeader" xml:space="preserve">
+    <value>Wyniki wyszukiwania artystów dla "{0}"</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="SearchResultAlbumHeader" xml:space="preserve">
+    <value>Wyniki wyszukiwania albumów dla "{0}"</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="SearchResultSongHeader" xml:space="preserve">
+    <value>Wyniki wyszukiwania utworów dla "{0}"</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="SearchResultVideoHeader" xml:space="preserve">
+    <value>Wyniki wyszukiwania wideo dla "{0}"</value>
+    <comment>#Format[String query]</comment>
+  </data>
+  <data name="AlbumsCount_None" xml:space="preserve">
+    <value>Brak albumów</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="AccessDeniedMessage" xml:space="preserve">
+    <value>Odmowa dostępu. Zweryfikuj swoje ustawienia prywatności, aby upewnić się, że Screenbox ma wystarczające uprawnienia.</value>
+  </data>
+  <data name="AccessDeniedMusicLibraryTitle" xml:space="preserve">
+    <value>Nie można uzyskać dostępu do biblioteki muzycznej</value>
+  </data>
+  <data name="AccessDeniedPicturesLibraryTitle" xml:space="preserve">
+    <value>Nie można uzyskać dostępu do biblioteki obrazów</value>
+  </data>
+  <data name="AccessDeniedVideosLibraryTitle" xml:space="preserve">
+    <value>Nie można uzyskać dostępu do biblioteki filmów</value>
+  </data>
+  <data name="NoVideosPanelHeader" xml:space="preserve">
+    <value>Nie mogliśmy znaleźć żadnych filmów</value>
+  </data>
+  <data name="NoVideosPanelSubtext" xml:space="preserve">
+    <value>Twoja biblioteka wideo nie zawiera żadnych treści wideo.</value>
+  </data>
+  <data name="OpenPrivacySettingsButtonText" xml:space="preserve">
+    <value>Otwórz ustawienia prywatności</value>
+  </data>
+  <data name="FailedToLoadMediaNotificationTitle" xml:space="preserve">
+    <value>Nie udało się załadować materiału</value>
+  </data>
+  <data name="AspectRatio" xml:space="preserve">
+    <value>Proporcje</value>
+  </data>
+  <data name="Fit" xml:space="preserve">
+    <value>Dopasuj</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>Wypełnij</value>
+  </data>
+  <data name="CustomAspectRatio" xml:space="preserve">
+    <value>Własne proporcje</value>
+  </data>
+  <data name="CustomPlaybackSpeed" xml:space="preserve">
+    <value>Niestandardowa prędkość odtwarzania</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Brak</value>
+  </data>
+  <data name="ScaleStatus" xml:space="preserve">
+    <value>Skala: {0}</value>
+    <comment>#Format[String scale]</comment>
+  </data>
+  <data name="SubtitleStatus" xml:space="preserve">
+    <value>Podtytuł: {0}</value>
+    <comment>#Format[String name]</comment>
+  </data>
+  <data name="TrackIndex" xml:space="preserve">
+    <value>Utwór {0}</value>
+    <comment>#Format[Int index]</comment>
+  </data>
+  <data name="AddSubtitle" xml:space="preserve">
+    <value>Dodaj podtytuł</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Dźwięk</value>
+  </data>
+  <data name="SettingsCategoryAbout" xml:space="preserve">
+    <value>O aplikacji</value>
+  </data>
+  <data name="SettingsCategoryGeneral" xml:space="preserve">
+    <value>Ogólne</value>
+  </data>
+  <data name="SettingsCategoryLibraries" xml:space="preserve">
+    <value>Biblioteki</value>
+  </data>
+  <data name="SettingsCategoryPlayer" xml:space="preserve">
+    <value>Odtwarzacz</value>
+  </data>
+  <data name="SettingsMusicLibraryLocationsHeader" xml:space="preserve">
+    <value>Lokalizacje biblioteki muzycznej</value>
+  </data>
+  <data name="SettingsShowRecentHeader" xml:space="preserve">
+    <value>Pokaż ostatnio używane</value>
+  </data>
+  <data name="SettingsShowControlsHeader" xml:space="preserve">
+    <value>Pokazuj elementy sterowania podczas pauzy</value>
+  </data>
+  <data name="SettingsVideoLibraryLocationsHeader" xml:space="preserve">
+    <value>Lokalizacje biblioteki wideo</value>
+  </data>
+  <data name="Subtitles" xml:space="preserve">
+    <value>Napisy</value>
+  </data>
+  <data name="SettingsShowRecentDescription" xml:space="preserve">
+    <value>Wyświetl ostatnio odtwarzane media na stronie głównej</value>
+  </data>
+  <data name="SettingsClearRecentHeader" xml:space="preserve">
+    <value>Wyczyść historię ostatnio przeglądanych mediów</value>
+  </data>
+  <data name="SettingsAutoResizeHeader" xml:space="preserve">
+    <value>Automatyczne dostosowywanie rozmiaru</value>
+  </data>
+  <data name="SettingsAutoResizeDescription" xml:space="preserve">
+    <value>Zmień rozmiar okna aplikacji, aby najlepiej dopasować natywną rozdzielczość wideo przy odtwarzaniu</value>
+  </data>
+  <data name="SettingsVolumeBoostHeader" xml:space="preserve">
+    <value>Wzmocnienie głośności</value>
+  </data>
+  <data name="SettingsVolumeBoostDescription" xml:space="preserve">
+    <value>Pozwól na osiągnięcie maksymalnej głośności powyżej 100%</value>
+  </data>
+  <data name="SettingsOnScreenControlsHeader" xml:space="preserve">
+    <value>Sterowanie ekranowe</value>
+  </data>
+  <data name="SettingsOnScreenControlsDescription" xml:space="preserve">
+    <value>Wybierz, które elementy mogą pojawić się w kontrolach i dostosuj automatyczne ukrywanie</value>
+  </data>
+  <data name="SettingsGesturesHeader" xml:space="preserve">
+    <value>Gesty</value>
+  </data>
+  <data name="SettingsGestureSeek" xml:space="preserve">
+    <value>Przeciągnij poziomo, aby podglądać</value>
+  </data>
+  <data name="SettingsGestureVolume" xml:space="preserve">
+    <value>Przeciągnij pionowo, aby dostosować głośność</value>
+  </data>
+  <data name="SettingsGestureTap" xml:space="preserve">
+    <value>Dotknij gdziekolwiek, aby odtworzyć lub wstrzymać</value>
+  </data>
+  <data name="AppFriendlyName" xml:space="preserve">
+    <value>Odtwarzacz Screenbox</value>
+  </data>
+  <data name="HyperlinkSourceCode" xml:space="preserve">
+    <value>Kod źródłowy</value>
+  </data>
+  <data name="HyperlinkDiscord" xml:space="preserve">
+    <value>Discord</value>
+  </data>
+  <data name="HyperlinkSponsor" xml:space="preserve">
+    <value>Wspomóż twórców</value>
+  </data>
+  <data name="Always" xml:space="preserve">
+    <value>Zawsze</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Nigdy</value>
+  </data>
+  <data name="OnLaunch" xml:space="preserve">
+    <value>Przy uruchomieniu</value>
+  </data>
+  <data name="VersionText" xml:space="preserve">
+    <value>Wersja {0}</value>
+    <comment>#Format[VERSION]</comment>
+  </data>
+  <data name="SubtitleAddedNotificationTitle" xml:space="preserve">
+    <value>Dodano napisy</value>
+  </data>
+  <data name="PlaylistCreatedNotificationTitle" xml:space="preserve">
+    <value>Playlist "{0}" created</value>
+    <comment>#Format[String name]</comment>
+  </data>
+  <data name="PlaylistDeletedNotificationTitle" xml:space="preserve">
+    <value>Playlist "{0}" deleted</value>
+    <comment>#Format[String name]</comment>
+  </data>
+  <data name="PlaylistRenamedNotificationTitle" xml:space="preserve">
+    <value>Playlist renamed to "{0}"</value>
+    <comment>#Format[String name]</comment>
+  </data>
+  <data name="CriticalError" xml:space="preserve">
+    <value>Błąd krytyczny</value>
+  </data>
+  <data name="CriticalErrorDirect3D11NotAvailable" xml:space="preserve">
+    <value>Brak kompatybilnego renderowania. Upewnij się, że Direct3D 11 jest dostępny na twoim urządzeniu.</value>
+  </data>
+  <data name="CriticalErrorMoreInformation" xml:space="preserve">
+    <value>Aby uzyskać więcej informacji na temat tego problemu i możliwych rozwiązań, odwiedź</value>
+  </data>
+  <data name="FailedToOpenFilesNotificationTitle" xml:space="preserve">
+    <value>Nie można otworzyć pliku (plików)</value>
+  </data>
+  <data name="OpenUrlPlaceholder" xml:space="preserve">
+    <value>Wprowadź adres URL pliku lub strumienia</value>
+  </data>
+  <data name="OpenConnectedDevicesSettingsButtonText" xml:space="preserve">
+    <value>Otwórz ustawienia połączonych urządzeń</value>
+  </data>
+  <data name="SetPlaybackOptions" xml:space="preserve">
+    <value>Ustaw opcje odtwarzania</value>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>Ustaw</value>
+  </data>
+  <data name="SetAndPlay" xml:space="preserve">
+    <value>Ustaw i odtwarzaj</value>
+  </data>
+  <data name="SetPlaybackOptionsHelpTextLine1" xml:space="preserve">
+    <value>Ustaw opcje VLC, które dotyczą strumienia.</value>
+  </data>
+  <data name="SetPlaybackOptionsHelpTextLine2" xml:space="preserve">
+    <value>Niektóre opcje mogą być ustawione tylko globalnie.</value>
+  </data>
+  <data name="VlcCommandLineHelpLink" xml:space="preserve">
+    <value>Pomoc wiersza poleceń VLC</value>
+  </data>
+  <data name="VlcCommandLineHelpText" xml:space="preserve">
+    <value>Zobacz {0}, aby zobaczyć pełną listę dostępnych opcji.</value>
+    <comment>{0} = VLC command-line help</comment>
+  </data>
+  <data name="SettingsCategoryAdvanced" xml:space="preserve">
+    <value>Zaawansowane</value>
+  </data>
+  <data name="SettingsCategoryPrivacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="SettingsAdvancedModeHeader" xml:space="preserve">
+    <value>Tryb rozszerzony</value>
+  </data>
+  <data name="SettingsAdvancedModeDescription" xml:space="preserve">
+    <value>Tryb zaawansowany pozwala dostosować zachowanie LibVLC za pomocą argumentów wiersza poleceń</value>
+  </data>
+  <data name="SettingsGlobalArgumentsHeader" xml:space="preserve">
+    <value>Argumenty globalne</value>
+  </data>
+  <data name="SettingsGlobalArgumentsDescription" xml:space="preserve">
+    <value>Argumenty wiersza poleceń, które dotyczą wszystkich odtwarzaczy multimediów</value>
+  </data>
+  <data name="RemoveFolder" xml:space="preserve">
+    <value>Usuń folder</value>
+  </data>
+  <data name="PendingChanges" xml:space="preserve">
+    <value>Oczekujące zmiany</value>
+  </data>
+  <data name="RelaunchForChangesMessage" xml:space="preserve">
+    <value>Uruchom ponownie aplikację, aby zmiany zaczęły obowiązywać</value>
+  </data>
+  <data name="FailedToInitializeNotificationTitle" xml:space="preserve">
+    <value>Nie udało się zainicjować</value>
+  </data>
+  <data name="RelatedLinks" xml:space="preserve">
+    <value>Powiązane linki</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Polityka Prywatności</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>Licencja</value>
+  </data>
+  <data name="ThirdPartyNotices" xml:space="preserve">
+    <value>Ogłoszenie oprogramowania zewnętrznego</value>
+  </data>
+  <data name="HyperlinkTranslate" xml:space="preserve">
+    <value>Pomóż w tłumaczeniu</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Opcje</value>
+  </data>
+  <data name="TimingOffset" xml:space="preserve">
+    <value>Przesunięcie czasowe</value>
+  </data>
+  <data name="PropertyComposers" xml:space="preserve">
+    <value>Kompozytorzy</value>
+  </data>
+  <data name="FailedToAddFolderNotificationTitle" xml:space="preserve">
+    <value>Nie udało się dodać folderu</value>
+  </data>
+  <data name="OpenAlbum" xml:space="preserve">
+    <value>Otwórz album</value>
+  </data>
+  <data name="OpenArtist" xml:space="preserve">
+    <value>Otwórz wykonawcę</value>
+  </data>
+  <data name="RefreshLibraries" xml:space="preserve">
+    <value>Odśwież biblioteki</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Odśwież</value>
+  </data>
+  <data name="SettingsUseIndexerHeader" xml:space="preserve">
+    <value>Użyj indeksowania do skanowania</value>
+  </data>
+  <data name="SettingsUseIndexerDescription" xml:space="preserve">
+    <value>Przyspiesz skanowanie bibliotek poprzez użycie indeksu systemowego, gdy jest on dostępny. Wyłącz tę opcję, jeśli nie widzisz wszystkich mediów w bibliotece.</value>
+  </data>
+  <data name="ManageSystemIndexingLink" xml:space="preserve">
+    <value>Zarządzaj ustawieniami indeksowania systemu</value>
+  </data>
+  <data name="SetArguments" xml:space="preserve">
+    <value>Ustaw argumenty</value>
+  </data>
+  <data name="SettingsSearchRemovableStorageHeader" xml:space="preserve">
+    <value>Wyszukaj w pamięci wymiennej</value>
+  </data>
+  <data name="SettingsSearchRemovableStorageDescription" xml:space="preserve">
+    <value>Zawieraj media z nośników danych takich jak nośniki USB w bibliotece</value>
+  </data>
+  <data name="ActiveArguments" xml:space="preserve">
+    <value>Aktywne argumenty</value>
+  </data>
+  <data name="SettingsUseMultipleInstancesHeader" xml:space="preserve">
+    <value>Zezwól na wiele okien</value>
+  </data>
+  <data name="SettingsUseMultipleInstancesDescription" xml:space="preserve">
+    <value>Zawsze otwieraj media w nowym oknie</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sortuj wg</value>
+  </data>
+  <data name="SortByAutomationName" xml:space="preserve">
+    <value>Sortuj według {0} wybranej opcji</value>
+    <comment>#Format[String sortBy]</comment>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="ReleasedYear" xml:space="preserve">
+    <value>Rok wydania</value>
+  </data>
+  <data name="SettingsAudioVisualHeader" xml:space="preserve">
+    <value>Wizualizacja dźwięku</value>
+  </data>
+  <data name="GetLivelyApp" xml:space="preserve">
+    <value>Pobierz Lively Wallpaper</value>
+  </data>
+  <data name="GetLivelyVisuals" xml:space="preserve">
+    <value>Pobierz wizualizacje z GitHub</value>
+  </data>
+  <data name="VisualizerOptionsToolTip" xml:space="preserve">
+    <value>Opcje wizualizacji dźwięku</value>
+  </data>
+  <data name="Visuals" xml:space="preserve">
+    <value>Efekty wizualne</value>
+  </data>
+  <data name="BrowseFiles" xml:space="preserve">
+    <value>Przeglądaj pliki</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Domyślne</value>
+  </data>
+  <data name="SettingsAudioVisualDescription" xml:space="preserve">
+    <value>Wybierz styl obrazu, który będzie wyświetlany podczas odtwarzania dźwięku</value>
+  </data>
+  <data name="PoweredByLivelyWallpaper" xml:space="preserve">
+    <value>Obsługiwane przez Lively Wallpaper</value>
+  </data>
+  <data name="SettingsImportVisualsHeader" xml:space="preserve">
+    <value>Importuj efekty wizualne</value>
+  </data>
+  <data name="SettingsImportVisualsDescription" xml:space="preserve">
+    <value>Uzyskaj więcej wizualizacji za pośrednictwem aplikacji Lively Wallpaper lub pobierz je z GitHub</value>
+  </data>
+  <data name="DateAdded" xml:space="preserve">
+    <value>Data dodania</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Wideo</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Plik</value>
+  </data>
+  <data name="MusicLibrary" xml:space="preserve">
+    <value>Muzyka</value>
+  </data>
+  <data name="VideoLibrary" xml:space="preserve">
+    <value>Filmy</value>
+  </data>
+  <data name="ShowAlbum" xml:space="preserve">
+    <value>Pokaż album</value>
+  </data>
+  <data name="ShowArtist" xml:space="preserve">
+    <value>Pokaż artystę</value>
+  </data>
+  <data name="FailedToLoadVisualNotificationTitle" xml:space="preserve">
+    <value>Nie udało się załadować wizualizacji</value>
+  </data>
+  <data name="SettingsEnqueueAllFilesInFolderDescription" xml:space="preserve">
+    <value>Podczas otwierania pojedynczego pliku, automatycznie dodaj wszystkie inne pliki w folderze do kolejki odtwarzania</value>
+  </data>
+  <data name="SettingsEnqueueAllFilesInFolderHeader" xml:space="preserve">
+    <value>Dodaj wszystkie pliki w folderze do kolejki</value>
+  </data>
+  <data name="ThemeAuto" xml:space="preserve">
+    <value>Użyj ustawienia systemowego</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Ciemny</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Jasny</value>
+  </data>
+  <data name="SettingsThemeSelectionDescription" xml:space="preserve">
+    <value>Zmień schemat kolorów aplikacji</value>
+  </data>
+  <data name="SettingsThemeSelectionHeader" xml:space="preserve">
+    <value>Motyw aplikacji</value>
+  </data>
+  <data name="SettingsCategoryPersonalization" xml:space="preserve">
+    <value>Personalizacja</value>
+  </data>
+  <data name="SettingsRestorePlaybackPositionHeader" xml:space="preserve">
+    <value>Zawsze wznawiaj od ostatniej pozycji</value>
+  </data>
+  <data name="SettingsRestorePlaybackPositionDescription" xml:space="preserve">
+    <value>Kontynuuj odtwarzanie z miejsca ostatniego zatrzymania podczas otwierania pliku</value>
+  </data>
+  <data name="SettingsVideoUpscalingHeader" xml:space="preserve">
+    <value>Metoda skalowania obrazu</value>
+  </data>
+  <data name="SettingsVideoUpscalingDescription" xml:space="preserve">
+    <value>Super resolution upscaling requires compatible hardware and driver support.</value>
+  </data>
+  <data name="VideoUpscalingLinear" xml:space="preserve">
+    <value>Dwuliniowe</value>
+  </data>
+  <data name="VideoUpscalingPoint" xml:space="preserve">
+    <value>Punkt</value>
+  </data>
+  <data name="VideoUpscalingSuper" xml:space="preserve">
+    <value>Super rozdzielczość</value>
+  </data>
+  <data name="SettingsShowChaptersHeader" xml:space="preserve">
+    <value>Wyświetlaj nazwę rozdziału, jeśli jest dostępna</value>
+  </data>
+  <data name="SettingsOnScreenControlsHideDelayHeader" xml:space="preserve">
+    <value>Ukryj elementy sterujące po tym czasie</value>
+  </data>
+  <data name="SecondsCount_One" xml:space="preserve">
+    <value>{0} sekunda</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="SecondsCount_Other" xml:space="preserve">
+    <value>{0} sekund</value>
+    <comment>#Format[Plural Int]</comment>
+  </data>
+  <data name="SettingsLanguageSelectionHeader" xml:space="preserve">
+    <value>Język aplikacji</value>
+  </data>
+  <data name="SettingsLanguageSelectionDescription" xml:space="preserve">
+    <value>Zmień język wyświetlania aplikacji</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Użyj języka systemu</value>
+  </data>
+  <data name="SearchNoResults" xml:space="preserve">
+    <value>Brak wyników dla "{0}"</value>
+    <comment>#Format[String searchQuery]</comment>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="AddToPlaylist" xml:space="preserve">
+    <value>Add to playlist</value>
+  </data>
+  <data name="CreateNewPlaylist" xml:space="preserve">
+    <value>Create new playlist</value>
+  </data>
+  <data name="NewPlaylist" xml:space="preserve">
+    <value>New playlist</value>
+  </data>
+  <data name="SelectedItem" xml:space="preserve">
+    <value>Selected item</value>
+  </data>
+  <data name="SelectedItems" xml:space="preserve">
+    <value>Selected items</value>
+  </data>
+  <data name="NoPlaylists" xml:space="preserve">
+    <value>No playlists</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewPlaylistDefaultName" xml:space="preserve">
+    <value>Untitled playlist</value>
+  </data>
+  <data name="CreatePlaylistPlaceholder" xml:space="preserve">
+    <value>Enter a name for this playlist</value>
+  </data>
+  <data name="Playlists" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="RenamePlaylistPlaceholder" xml:space="preserve">
+    <value>Enter a new name for this playlist</value>
+  </data>
+  <data name="RenamePlaylist" xml:space="preserve">
+    <value>Rename playlist</value>
+  </data>
+  <data name="DeletePlaylist" xml:space="preserve">
+    <value>Delete playlist</value>
+  </data>
+  <data name="DeletePlaylistConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete '{0}' playlist? You cannot undo this action.</value>
+    <comment>#Format[String playlistName]</comment>
+  </data>
+  <data name="SettingsSavePlaybackPositionHeader" xml:space="preserve">
+    <value>Playback position history</value>
+  </data>
+  <data name="SettingsSavePlaybackPositionDescription" xml:space="preserve">
+    <value>Store my playback position history on this device to enable quick session resumption</value>
+  </data>
+  <data name="SettingsClearPlaybackPositionHeader" xml:space="preserve">
+    <value>Clear device playback position history</value>
+  </data>
+  <data name="PlaylistItemsAddedNotificationTitle_One" xml:space="preserve">
+    <value>Added {0} item to playlist "{1}"</value>
+    <comment>#Format[Plural count, String name]</comment>
+  </data>
+  <data name="PlaylistItemsAddedNotificationTitle_Other" xml:space="preserve">
+    <value>Added {0} items to playlist "{1}"</value>
+    <comment>#Format[Plural count, String name]</comment>
+  </data>
+</root>

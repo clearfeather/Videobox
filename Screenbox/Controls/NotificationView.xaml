@@ -1,0 +1,54 @@
+﻿<UserControl
+    x:Class="Screenbox.Controls.NotificationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <!--  Reference from AcrylicInAppFillColorDefaultBrush  -->
+                    <AcrylicBrush
+                        x:Key="InfoBarInformationalSeverityBackgroundBrush"
+                        BackgroundSource="Backdrop"
+                        FallbackColor="#2C2C2C"
+                        TintColor="#2C2C2C"
+                        TintLuminosityOpacity="0.96"
+                        TintOpacity="0.15" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <!--  Reference from AcrylicInAppFillColorDefaultBrush  -->
+                    <AcrylicBrush
+                        x:Key="InfoBarInformationalSeverityBackgroundBrush"
+                        BackgroundSource="Backdrop"
+                        FallbackColor="#F9F9F9"
+                        TintColor="#FCFCFC"
+                        TintLuminosityOpacity="0.85"
+                        TintOpacity="0.0" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <StaticResource x:Key="InfoBarInformationalSeverityBackgroundBrush" ResourceKey="SystemColorWindowColorBrush" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <muxc:InfoBar
+        x:Name="InfoBar"
+        Title="{x:Bind ViewModel.Title, Mode=OneWay}"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Bottom"
+        ActionButton="{x:Bind ViewModel.ActionButton, Mode=OneWay}"
+        CloseButtonCommand="{x:Bind ViewModel.CloseCommand}"
+        Content="{x:Bind ViewModel.Content, Mode=OneWay}"
+        CornerRadius="{StaticResource OverlayCornerRadius}"
+        IsOpen="{x:Bind ViewModel.IsOpen, Mode=TwoWay}"
+        Message="{x:Bind ViewModel.Message, Mode=OneWay}"
+        Severity="{x:Bind ConvertInfoBarSeverity(ViewModel.Severity), Mode=OneWay}" />
+</UserControl>
