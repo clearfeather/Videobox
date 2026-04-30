@@ -677,12 +677,12 @@
                         <Button
                             Grid.Column="1"
                             MinWidth="{StaticResource SettingsCardButtonMinWidth}"
-                            Command="{x:Bind ViewModel.SetAppLockPinCommand}"
+                            Click="SetAppLockPinButton_Click"
                             Content="Set PIN" />
                         <Button
                             Grid.Column="2"
                             MinWidth="{StaticResource SettingsCardButtonMinWidth}"
-                            Command="{x:Bind ViewModel.ClearAppLockPinCommand}"
+                            Click="ClearAppLockPinButton_Click"
                             Content="{strings:Resources Key=Clear}"
                             IsEnabled="{x:Bind ViewModel.HasAppLockPin, Mode=OneWay}" />
                     </Grid>

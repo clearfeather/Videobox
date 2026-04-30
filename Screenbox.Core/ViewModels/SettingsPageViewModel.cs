@@ -23,7 +23,6 @@ using Windows.Storage.AccessCache;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
 
 namespace Screenbox.Core.ViewModels;
 
@@ -661,13 +660,11 @@ public sealed partial class SettingsPageViewModel : ObservableRecipient
         Messenger.Send(new TagsChangedMessage(tags));
     }
 
-    [RelayCommand]
-    private async Task SetAppLockPinAsync()
+    public bool SetAppLockPin(string pin)
     {
-        string? pin = await PromptForPinAsync("Set app lock PIN", "Save");
-        if (pin == null)
+        if (!PinLockHelper.IsValidPin(pin))
         {
-            return;
+            return false;
         }
 
         string salt = PinLockHelper.CreateSalt();
@@ -677,27 +674,12 @@ public sealed partial class SettingsPageViewModel : ObservableRecipient
         OnPropertyChanged(nameof(AppLockStatus));
 
         AppLockEnabled = true;
+        return true;
     }
 
-    [RelayCommand]
-    private async Task ClearAppLockPinAsync()
+    public void ClearAppLockPin()
     {
         if (!HasAppLockPin)
-        {
-            return;
-        }
-
-        ContentDialog dialog = new()
-        {
-            Title = "Clear app lock PIN?",
-            Content = "VideoBox will no longer ask for a PIN when it opens.",
-            PrimaryButtonText = "Clear",
-            CloseButtonText = "Cancel",
-            DefaultButton = ContentDialogButton.Close
-        };
-
-        ContentDialogResult result = await dialog.ShowAsync();
-        if (result != ContentDialogResult.Primary)
         {
             return;
         }
@@ -722,56 +704,6 @@ public sealed partial class SettingsPageViewModel : ObservableRecipient
     private int GetVideoThumbnailSourceIndex()
     {
         return _settingsService.AutoLoadThumbnails && _settingsService.UseGeneratedVideoThumbnails ? 1 : 0;
-    }
-
-    private static async Task<string?> PromptForPinAsync(string title, string primaryButtonText)
-    {
-        PasswordBox pinBox = new()
-        {
-            MaxLength = 4,
-            PlaceholderText = "4-digit PIN"
-        };
-        InputScope inputScope = new();
-        inputScope.Names.Add(new InputScopeName(InputScopeNameValue.Number));
-        pinBox.InputScope = inputScope;
-
-        TextBlock errorText = new()
-        {
-            Margin = new Thickness(0, 8, 0, 0),
-            Text = string.Empty
-        };
-
-        StackPanel panel = new()
-        {
-            Children =
-            {
-                pinBox,
-                errorText
-            }
-        };
-
-        ContentDialog dialog = new()
-        {
-            Title = title,
-            Content = panel,
-            PrimaryButtonText = primaryButtonText,
-            CloseButtonText = "Cancel",
-            DefaultButton = ContentDialogButton.Primary
-        };
-
-        dialog.PrimaryButtonClick += (_, args) =>
-        {
-            if (PinLockHelper.IsValidPin(pinBox.Password))
-            {
-                return;
-            }
-
-            args.Cancel = true;
-            errorText.Text = "Enter exactly 4 digits.";
-        };
-
-        ContentDialogResult result = await dialog.ShowAsync();
-        return result == ContentDialogResult.Primary ? pinBox.Password : null;
     }
 
     public void OnNavigatedFrom()
