@@ -232,6 +232,9 @@
     <Compile Include="Converters\ThicknessFilterKinds.cs" />
     <Compile Include="Converters\ThicknessFiltersConverter.cs" />
     <Compile Include="Converters\ToggleButtonCheckToRepeatModeConverter.cs" />
+    <Compile Include="Dialogs\AppLockPinDialog.xaml.cs">
+      <DependentUpon>AppLockPinDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\CreatePlaylistDialog.xaml.cs">
       <DependentUpon>CreatePlaylistDialog.xaml</DependentUpon>
     </Compile>
@@ -628,6 +631,10 @@
     <Page Include="Controls\VolumeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\AppLockPinDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\CreatePlaylistDialog.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -9,11 +9,11 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Messaging;
 using Screenbox.Core;
 using Screenbox.Core.Enums;
-using Screenbox.Core.Helpers;
 using Screenbox.Core.Messages;
 using Screenbox.Core.Models;
 using Screenbox.Core.Services;
 using Screenbox.Core.ViewModels;
+using Screenbox.Dialogs;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.System;
 using Windows.UI.Core;
@@ -315,58 +315,11 @@ namespace Screenbox.Pages
                 return true;
             }
 
-            PasswordBox pinBox = new()
+            if (await AppLockPinDialog.PromptUnlockAsync(
+                    _settingsService.AppLockPinSalt,
+                    _settingsService.AppLockPinHash))
             {
-                MaxLength = 4,
-                PlaceholderText = "4-digit PIN"
-            };
-            InputScope inputScope = new();
-            inputScope.Names.Add(new InputScopeName(InputScopeNameValue.Number));
-            pinBox.InputScope = inputScope;
-
-            TextBlock errorText = new()
-            {
-                Margin = new Thickness(0, 8, 0, 0),
-                Text = string.Empty
-            };
-
-            StackPanel panel = new()
-            {
-                Children =
-                {
-                    pinBox,
-                    errorText
-                }
-            };
-
-            ContentDialog dialog = new()
-            {
-                Title = "Enter PIN",
-                Content = panel,
-                PrimaryButtonText = "Unlock",
-                CloseButtonText = "Exit",
-                DefaultButton = ContentDialogButton.Primary
-            };
-
-            dialog.PrimaryButtonClick += (_, args) =>
-            {
-                if (PinLockHelper.VerifyPin(
-                        pinBox.Password,
-                        _settingsService.AppLockPinSalt,
-                        _settingsService.AppLockPinHash))
-                {
-                    _appUnlocked = true;
-                    return;
-                }
-
-                args.Cancel = true;
-                pinBox.Password = string.Empty;
-                errorText.Text = "That PIN didn't match.";
-            };
-
-            ContentDialogResult result = await dialog.ShowAsync();
-            if (result == ContentDialogResult.Primary && _appUnlocked)
-            {
+                _appUnlocked = true;
                 return true;
             }
 
