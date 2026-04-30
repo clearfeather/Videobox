@@ -24,6 +24,7 @@ VideoBox is built on top of [LibVLCSharp](https://github.com/videolan/libvlcshar
 - Automatic title cleanup for common filename patterns
 - Metadata side panel for selected videos
 - Local-only playback focus with internet capability removed
+- VideoBox settings and library metadata are isolated from Microsoft Media Player
 - Startup audio preference for remembered volume, mute, or a chosen default level
 - Optional app PIN lock
 
@@ -49,6 +50,8 @@ VideoBox works best when you add the folders you actually browse often.
 4. Go back to **Videos** to browse those folders, or use **All Videos** to see everything together.
 
 Once your folders are added, you can favorite videos, assign a single tag, set folder covers from JPEG images, and choose how thumbnails are generated. Settings also include startup page and audio defaults so the app opens and plays the way you prefer.
+
+VideoBox keeps its own settings, tags, favorites, thumbnail choices, and folder library data. It does not share those app preferences with Microsoft Media Player.
 
 ## Build
 
