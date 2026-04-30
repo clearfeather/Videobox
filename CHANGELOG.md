@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.0.1
+
+- Added optional PayPal donation and GitHub Sponsors links
+- Removed unused music and pictures library capabilities from the app package
+
 ## v1.0.0
 
 Initial VideoBox release from the ClearFeather fork of Screenbox.
