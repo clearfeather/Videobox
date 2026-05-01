@@ -16,17 +16,16 @@ VideoBox is built on top of [LibVLCSharp](https://github.com/videolan/libvlcshar
 
 ## Screenshots
 
-<p align="center">
-  <img src="docs/screenshots/library-view.png" alt="VideoBox library view" width="900">
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/playback-view.png" alt="VideoBox playback view" width="900">
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/settings-view.png" alt="VideoBox settings view" width="900">
-</p>
+<table>
+  <tr>
+    <td><img src="docs/screenshots/home-view.png" alt="VideoBox home view"></td>
+    <td><img src="docs/screenshots/library-view.png" alt="VideoBox library view"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/playback-view.png" alt="VideoBox playback view"></td>
+    <td><img src="docs/screenshots/settings-view.png" alt="VideoBox settings view"></td>
+  </tr>
+</table>
 
 ## Features
 
