@@ -49,7 +49,11 @@ VideoBox is currently distributed as a sideloaded Windows app package.
 2. Open the downloaded `.msixbundle`.
 3. Choose Install or Update.
 
-Windows may show a publisher/certificate warning for sideload builds that are not Microsoft Store signed. If Windows blocks the install, download the matching `.cer` certificate from the same release, install it as a trusted certificate, then open the `.msixbundle` again.
+If you have run VideoBox from Visual Studio, Windows may report that an unpackaged version is already installed. Remove the debug deployment first, then open the `.msixbundle` again:
+
+```powershell
+Get-AppxPackage *VideoBox* | Remove-AppxPackage
+```
 
 This fork is not currently published to the Microsoft Store or winget.
 
