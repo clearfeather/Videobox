@@ -53,8 +53,7 @@
                     Icon="{ui:FontIcon Glyph=&#xE734;}"
                     Text="{strings:Resources Key=AddToFavorites}" />
                 <MenuFlyoutItem
-                    Command="{x:Bind Common.EditMediaTagsCommand}"
-                    CommandParameter="{Binding}"
+                    Click="TagMenuFlyoutItem_OnClick"
                     Icon="{ui:FontIcon Glyph=&#xE70F;}"
                     Text="Edit tag" />
                 <MenuFlyoutSubItem

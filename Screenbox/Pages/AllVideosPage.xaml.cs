@@ -59,6 +59,33 @@ namespace Screenbox.Pages
             }
         }
 
+        private void TagMenuFlyoutItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (TryTagSelectedVideos())
+            {
+                return;
+            }
+
+            if ((sender as FrameworkElement)?.DataContext is MediaViewModel media
+                && Common.EditMediaTagsCommand.CanExecute(media))
+            {
+                Common.EditMediaTagsCommand.Execute(media);
+            }
+        }
+
+        private bool TryTagSelectedVideos()
+        {
+            if (VideosGridView.SelectionMode != ListViewSelectionMode.Multiple
+                || !VideosGridView.SelectedItems.OfType<MediaViewModel>().Any()
+                || !Common.AddTagsToItemsCommand.CanExecute(VideosGridView.SelectedItems))
+            {
+                return false;
+            }
+
+            Common.AddTagsToItemsCommand.Execute(VideosGridView.SelectedItems);
+            return true;
+        }
+
         private void VideosGridView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateSelectionActionState();

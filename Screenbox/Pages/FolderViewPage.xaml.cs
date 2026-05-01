@@ -133,6 +133,33 @@ namespace Screenbox.Pages
             }
         }
 
+        private void TagMenuFlyoutItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (TryTagSelectedItems())
+            {
+                return;
+            }
+
+            if ((sender as FrameworkElement)?.DataContext is StorageItemViewModel item
+                && Common.EditTagsCommand.CanExecute(item))
+            {
+                Common.EditTagsCommand.Execute(item);
+            }
+        }
+
+        private bool TryTagSelectedItems()
+        {
+            if (FolderView.SelectionMode != ListViewSelectionMode.Multiple
+                || !FolderView.SelectedItems.OfType<StorageItemViewModel>().Any(item => item.Media != null)
+                || !Common.AddTagsToItemsCommand.CanExecute(FolderView.SelectedItems))
+            {
+                return false;
+            }
+
+            Common.AddTagsToItemsCommand.Execute(FolderView.SelectedItems);
+            return true;
+        }
+
         private void FolderView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateSelectionActionState();
